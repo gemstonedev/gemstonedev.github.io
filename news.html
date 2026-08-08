@@ -1,0 +1,27 @@
+---
+layout: page
+title: News
+summary: Project milestones, workshops, and releases.
+permalink: /news/
+---
+<div class="news-list">
+  {% for post in site.posts %}
+  <article class="news-item">
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %Y" }}</time>
+    <div>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p>{{ post.excerpt | strip_html | normalize_whitespace | truncate: 220 }}</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+
+<div class="signup">
+  <h3>Get project updates</h3>
+  <p>Announcements of workshops, training sessions, and OPAL releases go out a few times a year.</p>
+  {% comment %} TODO before launch: swap the mailto for a real list
+     (Mailchimp / Buttondown / Google Form) once one exists. {% endcomment %}
+  <div class="signup__row">
+    <a class="btn btn--navy" href="mailto:gemstone@stanford.edu?subject=Subscribe%20to%20GEMSTONE%20updates">Subscribe by email</a>
+  </div>
+</div>

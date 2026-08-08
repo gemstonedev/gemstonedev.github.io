@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<div class="wrap section">
+  <div class="split">
+    <div class="rail rail--sticky">
+      <span class="kicker">News</span>
+      <p class="rail__note"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></p>
+      <a class="rail__more" href="{{ '/news/' | relative_url }}">&larr; All news</a>
+    </div>
+    <div class="flow">
+      <h1 class="post-title">{{ page.title }}</h1>
+      <div class="post-body">{{ content }}</div>
+    </div>
+  </div>
+</div>

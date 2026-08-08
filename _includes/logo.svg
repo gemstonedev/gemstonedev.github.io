@@ -1,0 +1,7 @@
+<svg class="mark" viewBox="0 0 120 120" fill="none" aria-hidden="true" focusable="false">
+  <g transform="rotate(45 60 60)">
+    <rect x="18" y="18" width="24" height="24" class="m-corner"></rect><rect x="48" y="18" width="24" height="24" class="m-edge"></rect><rect x="78" y="18" width="24" height="24" class="m-corner"></rect>
+    <rect x="18" y="48" width="24" height="24" class="m-edge"></rect><rect x="48" y="48" width="24" height="24" class="m-core"></rect><rect x="78" y="48" width="24" height="24" class="m-edge"></rect>
+    <rect x="18" y="78" width="24" height="24" class="m-corner"></rect><rect x="48" y="78" width="24" height="24" class="m-edge"></rect><rect x="78" y="78" width="24" height="24" class="m-corner"></rect>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      {% include logo.svg %}
+      <span class="brand__name">GEMSTONE</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      {% for item in site.data.navigation %}
+        {% assign is_current = false %}
+        {% if page.url == item.url %}{% assign is_current = true %}{% endif %}
+        {% if item.url == '/news/' and page.collection == 'posts' %}{% assign is_current = true %}{% endif %}
+        <a href="{{ item.url | relative_url }}"{% if is_current %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>

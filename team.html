@@ -1,0 +1,41 @@
+---
+layout: page
+title: Team
+summary: Four institutions, with the U.S. Pharmacopeia as science partner.
+permalink: /team/
+wide: true
+---
+<div class="cells cells--2">
+  {% for m in site.data.team.leads %}
+  <div class="cell person">
+    <span class="label label--accent">{{ m.role }}</span>
+    <h3>{{ m.name }}</h3>
+    <span class="person__org">{{ m.org }}</span>
+    <p>{{ m.bio }}</p>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="stack">
+  <h2>Project leadership</h2>
+  <div class="cells cells--2">
+    {% for m in site.data.team.staff %}
+    <div class="cell person person--compact">
+      <h3>{{ m.name }}</h3>
+      <span class="person__org">{{ m.role }} &middot; {{ m.org }}</span>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="stack">
+  <h2>What each institution contributes</h2>
+  <div class="cells cells--1">
+    {% for p in site.data.partners %}
+    <div class="cell inst">
+      <h3>{{ p.name }}</h3>
+      <p>{{ p.contribution }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>

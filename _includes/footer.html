@@ -1,0 +1,29 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__brand on-dark">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        {% include logo.svg %}
+        <span class="brand__name">GEMSTONE</span>
+      </a>
+      <p>An NSF Programmable Cloud Laboratory node building the AI infrastructure that turns written experimental protocols into machine-actionable workflows.</p>
+    </div>
+    <div class="site-footer__col">
+      <span class="label">Project</span>
+      <a href="{{ '/vision/' | relative_url }}">Vision</a>
+      <a href="{{ '/team/' | relative_url }}">Team</a>
+      <a href="{{ '/publications/' | relative_url }}">Publications</a>
+    </div>
+    <div class="site-footer__col">
+      <span class="label">More</span>
+      <a href="{{ '/news/' | relative_url }}">News</a>
+      <a href="{{ '/contact/' | relative_url }}">Contact</a>
+      <a href="{{ '/acknowledgments/' | relative_url }}">Acknowledgments</a>
+    </div>
+  </div>
+  <div class="site-footer__legal">
+    <div class="wrap">
+      <p>Supported by the National Science Foundation under Award No.&nbsp;{{ site.nsf_award | default: '0000000' }}.</p>
+      <p>Stanford &middot; Emerald Cloud Lab &middot; Purdue &middot; Morehouse</p>
+    </div>
+  </div>
+</footer>

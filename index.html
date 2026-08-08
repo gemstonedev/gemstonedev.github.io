@@ -1,0 +1,114 @@
+---
+layout: default
+title: Home
+description: >-
+  GEMSTONE is an NSF Programmable Cloud Laboratory node building the AI
+  infrastructure that turns written experimental protocols into machine-actionable
+  workflows.
+---
+<section class="hero on-dark">
+  <div class="wrap">
+    <div class="hero__main">
+      <span class="kicker">NSF Programmable Cloud Laboratory Test Bed</span>
+      <h1>Building America&rsquo;s AI infrastructure for self-driving laboratories</h1>
+      <p class="hero__lede">Scientists should be able to describe an experiment the way they normally would, in prose, and have it run reliably in an automated laboratory. GEMSTONE develops the representation and the AI agents that make that possible, at a programmable cloud laboratory node operated by Emerald Cloud Lab in Austin, Texas.</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="{{ '/vision/' | relative_url }}">Read the approach</a>
+        <a class="btn btn--ghost" href="{{ '/contact/' | relative_url }}">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero__aside">
+      <span class="label">The acronym</span>
+      <p class="hero__acronym"><strong>G</strong>eneralizable <strong>E</strong>xperimental <strong>M</strong>ethods and <strong>S</strong>tandards for <strong>T</strong>ransparent, <strong>O</strong>pen, <strong>N</strong>etworked <strong>E</strong>xecution</p>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="stat__n">740</div><div class="stat__l">programmable instruments</div></div>
+    <div class="stat"><div class="stat__n">320</div><div class="stat__l">unique instrument types</div></div>
+    <div class="stat"><div class="stat__n">100,000</div><div class="stat__l">sq ft computer-controlled facility</div></div>
+    <div class="stat"><div class="stat__n">5</div><div class="stat__l">partner institutions</div></div>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="split">
+    <div class="rail rail--sticky"><h2>From prose to execution</h2></div>
+    <div class="flow flow--tight">
+      <p>A major bottleneck in automated experimentation is method transfer: writing a specification detailed enough to reliably guide a self-driving laboratory. Researchers are not used to writing out the low-level, common-sense details that a machine requires. GEMSTONE places an abstract, node-independent layer between natural language and the platform-specific languages that drive instruments.</p>
+      <div class="pipeline">
+        <div class="cells cells--3">
+          <div class="cell">
+            <span class="label">Input</span>
+            <h3>Prose protocol</h3>
+            <p>A USP monograph, a journal methods section, or a researcher&rsquo;s own description.</p>
+          </div>
+          <div class="cell">
+            <span class="label label--accent">ORE</span>
+            <h3>Disambiguation</h3>
+            <p>An AI agent flags vague instructions &mdash; &ldquo;mix thoroughly,&rdquo; &ldquo;adjust pH as needed&rdquo; &mdash; and resolves them by asking the user or running small experiments.</p>
+          </div>
+          <div class="cell">
+            <span class="label label--accent">OPAL</span>
+            <h3>Representation</h3>
+            <p>The Open Platform for Automated Laboratories: human-readable for validation, machine-executable for automation.</p>
+          </div>
+          <div class="cell">
+            <span class="label label--accent">TROVE</span>
+            <h3>Translation</h3>
+            <p>A second agent converts OPAL into a node&rsquo;s own language, beginning with Emerald&rsquo;s Symbolic Lab Language.</p>
+          </div>
+          <div class="cell">
+            <span class="label">Execution</span>
+            <h3>The node runs it</h3>
+            <p>Robotic handling, instrument runs, and provenance capture inside a 100,000 sq ft facility in Austin.</p>
+          </div>
+          <div class="cell cell--tint">
+            <span class="label">Closed loop</span>
+            <h3>Results feed back</h3>
+            <p>Outcomes return to TROVE, which adjusts parameters, updates constraints, and proposes improved variants.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section--tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="rail"><h2>Partners</h2></div>
+      <div class="cells cells--5">
+        {% for p in site.data.partners %}
+        <div class="cell partner">
+          <h3>{{ p.name }}</h3>
+          <span class="cell__meta">{{ p.location }}</span>
+          <p>{{ p.role }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="split">
+    <div class="rail">
+      <h2>Latest</h2>
+      <a class="rail__more" href="{{ '/news/' | relative_url }}">All news &rarr;</a>
+    </div>
+    <div class="news-list">
+      {% for post in site.posts limit: 3 %}
+      <a class="news-item" href="{{ post.url | relative_url }}">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %Y" }}</time>
+        <div>
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.excerpt | strip_html | normalize_whitespace | truncate: 180 }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

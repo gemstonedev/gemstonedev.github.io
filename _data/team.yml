@@ -1,0 +1,38 @@
+leads:
+  - name: Mark Musen
+    role: Principal Investigator
+    org: Stanford University
+    bio: >-
+      Stanford Medicine Professor of Biomedical Informatics Research, and professor
+      of Medicine and of Biomedical Data Science. Leads Stanford's Division of
+      Computational Medicine, with research in open science, data stewardship, and
+      intelligent systems. Member of the National Academy of Medicine.
+  - name: D.J. Kleinbaum
+    role: Co-PI &middot; Science Lead
+    org: Emerald Cloud Lab
+    bio: >-
+      Co-founder of Emerald Cloud Lab and inventor of the cloud laboratory concept.
+      Has worked with the National Security Commission on Emerging Biotechnology on
+      its recommendations around cloud labs.
+  - name: Gaurav Chopra
+    role: Co-PI &middot; AI Lead
+    org: Purdue University
+    bio: >-
+      Develops finite-state AI agent frameworks for reliable, auditable control of
+      laboratory workflows, including SciBORG and CLAW. His group's agent stack is
+      integrated at NIH NCATS.
+  - name: Juana Mendenhall
+    role: Co-PI &middot; Education Lead
+    org: Morehouse College
+    bio: >-
+      Leads national initiatives in AI literacy, AI integration in curriculum, and
+      automated science, with subject-matter expertise in autonomous polymer
+      synthesis and characterization.
+
+staff:
+  - name: Christian Kindermann
+    role: Data &amp; Standards Lead
+    org: Stanford University
+  - name: Marcos Martínez-Romero
+    role: Project Manager
+    org: Stanford University

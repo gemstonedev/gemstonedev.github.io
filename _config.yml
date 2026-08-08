@@ -1,0 +1,33 @@
+title: GEMSTONE
+tagline: Building America's AI Infrastructure for Self-Driving Laboratories
+description: >-
+  GEMSTONE is a node in the NSF Programmable Cloud Laboratory Test Bed, building
+  the AI infrastructure that turns written experimental protocols into
+  machine-actionable workflows.
+url: "https://gemstonedev.github.io"
+baseurl: ""
+
+# Set once, used in the footer, acknowledgments page, and citation block.
+nsf_award: "0000000"
+
+permalink: /news/:year/:month/:title/
+timezone: America/Los_Angeles
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+feed:
+  path: /feed.xml
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
