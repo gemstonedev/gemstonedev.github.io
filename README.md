@@ -49,6 +49,7 @@ _includes/
   header.html          sticky header + nav (marks current page)
   footer.html          footer + NSF acknowledgment line
   logo.svg             inline mark, recoloured by CSS
+  icon-*.svg           inline stroke icons (home, education, contact cells)
 _layouts/
   default.html         shell
   page.html            rail + content, used by every content page
@@ -58,6 +59,8 @@ assets/
   css/main.css         all styling
   img/logo.svg         standalone mark
   img/favicon.svg      favicon
+  img/nsf-logo.svg     official NSF logo (acknowledgments + footer)
+  img/partners/        partner logos, shown grayscale via CSS (color on hover)
 index.html             home
 vision.html  team.html  publications.html  news.html
 education.html  contact.html  acknowledgments.html

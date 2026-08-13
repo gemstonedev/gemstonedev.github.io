@@ -1,28 +1,33 @@
 - name: Stanford University
+  logo: /assets/img/partners/stanford.svg
   location: Stanford, CA
   role: Data standards and the OPAL representation
   contribution: >-
     Leads the design of OPAL and the tools that edit and maintain it, building on
     CEDAR, BioPortal, and Protégé.
 - name: Emerald Cloud Lab
+  logo: /assets/img/partners/emerald.svg
   location: Austin, TX
   role: The node itself, and its instruments
   contribution: >-
     Provides the node: instruments, automation, and the Symbolic Lab Language,
     contributed to the Test Bed under an open-source license.
 - name: Purdue University
+  logo: /assets/img/partners/purdue.svg
   location: West Lafayette, IN
   role: Agentic AI for laboratory applications
   contribution: >-
     Architects and validates the AI agents, designs the disambiguation experiments,
     and sets benchmarks for correctness, robustness, and safety.
 - name: Morehouse College
+  logo: /assets/img/partners/morehouse.png
   location: Atlanta, GA
   role: Recruitment, training, and user experience
   contribution: >-
     Leads recruitment, onboarding, training, and assessment, and develops
     undergraduate curriculum around cloud laboratories.
 - name: U.S. Pharmacopeia
+  logo: /assets/img/partners/usp.png
   location: Rockville, MD
   role: Science driver and subject-matter expertise
   contribution: >-

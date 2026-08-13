@@ -83,7 +83,8 @@ description: >-
       <div class="cells cells--5">
         {% for p in site.data.partners %}
         <div class="cell partner">
-          <h3>{{ p.name }}</h3>
+          {% if p.logo %}<span class="partner__logo"><img src="{{ p.logo | relative_url }}" alt="" loading="lazy"></span>{% endif %}
+          <h3{% if p.logo %} class="sr-only"{% endif %}>{{ p.name }}</h3>
           <span class="cell__meta">{{ p.location }}</span>
           <p>{{ p.role }}</p>
         </div>
@@ -100,18 +101,22 @@ description: >-
       <p>GEMSTONE is laying the shared, interoperable foundations for a national network of self-driving labs &mdash; open infrastructure that any researcher, institution, or lab can build on.</p>
       <div class="cells cells--2">
         <div class="cell">
+          <span class="cell__icon">{% include icon-network.svg %}</span>
           <h3>An open standard</h3>
           <p>OPAL is an open, implementation-agnostic standard &mdash; meant to do for laboratory automation <a href="{{ '/vision/' | relative_url }}">what STEP did for manufacturing</a>: a shared interchange layer before each node becomes too siloed to interact with the others.</p>
         </div>
         <div class="cell">
+          <span class="cell__icon">{% include icon-branch.svg %}</span>
           <h3>Open-source execution</h3>
           <p>Emerald&rsquo;s Symbolic Lab Language is contributed to the Test Bed under an open-source license.</p>
         </div>
         <div class="cell">
+          <span class="cell__icon">{% include icon-package.svg %}</span>
           <h3>Open artifacts</h3>
           <p>Trained models, OPAL templates, evaluation harnesses, and training data are shared under open licenses through a public GitHub repository.</p>
         </div>
         <div class="cell">
+          <span class="cell__icon">{% include icon-check.svg %}</span>
           <h3>FAIR-compliant</h3>
           <p>OPAL specifications are versioned, provenance-tracked, and shared in open formats, so other nodes can inspect, re-execute, and extend workflows.</p>
         </div>

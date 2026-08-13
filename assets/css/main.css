@@ -184,6 +184,7 @@ img, svg { max-width: 100%; }
 .cells--2 { grid-template-columns: repeat(auto-fit, minmax(276px, 1fr)); }
 .cells--3 { grid-template-columns: repeat(auto-fit, minmax(232px, 1fr)); }
 .cells--5 { grid-template-columns: repeat(auto-fit, minmax(176px, 1fr)); }
+@media (min-width: 1000px) { .cells--5 { grid-template-columns: repeat(5, 1fr); } }
 .cell { background: var(--paper); padding: 26px 30px; display: flex; flex-direction: column; gap: 8px; }
 .cell--tint { background: var(--tint); }
 .cell h3 { font-size: 18px; font-weight: 600; }
@@ -202,6 +203,17 @@ img, svg { max-width: 100%; }
 /* partner strip */
 .partner h3 { font-size: 16px; line-height: 1.3; }
 .partner p { font-size: 14px; line-height: 1.55; padding-top: 4px; }
+.partner__logo { display: flex; align-items: center; height: 30px; }
+.partner__logo img {
+  max-height: 26px; width: auto; max-width: 100%;
+  filter: grayscale(1); opacity: 0.75;
+  transition: filter .25s ease, opacity .25s ease;
+}
+.partner:hover .partner__logo img { filter: none; opacity: 1; }
+
+/* cell icons */
+.cell__icon { color: var(--navy); margin-bottom: 4px; }
+.cell__icon .icon { width: 26px; height: 26px; display: block; }
 
 /* objective rows */
 .objective { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 26px; padding: 28px 30px; }
