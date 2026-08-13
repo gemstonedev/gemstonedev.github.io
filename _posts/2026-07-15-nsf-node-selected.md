@@ -1,6 +1,10 @@
 ---
 layout: post
 title: GEMSTONE selected as an NSF Programmable Cloud Laboratory node
+description: >-
+  A four-institution team will build the translation layer between written
+  protocols and automated execution, at a node hosted by Emerald Cloud Lab in
+  Austin, Texas.
 ---
 
 A four-institution team will build the translation layer between written protocols

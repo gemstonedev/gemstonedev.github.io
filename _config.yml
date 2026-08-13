@@ -8,7 +8,7 @@ url: "https://gemstonedev.github.io"
 baseurl: ""
 
 # Set once, used in the footer, acknowledgments page, and citation block.
-nsf_award: "0000000"
+nsf_award: "2607573"
 
 permalink: /news/:year/:month/:title/
 timezone: America/Los_Angeles
@@ -21,7 +21,6 @@ kramdown:
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-seo-tag
 
 feed:
   path: /feed.xml

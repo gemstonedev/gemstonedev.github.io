@@ -1,6 +1,10 @@
 ---
 layout: post
 title: Project kickoff at Stanford
+description: >-
+  Partners from Stanford, Emerald Cloud Lab, Purdue, Morehouse, and the U.S.
+  Pharmacopeia met to set Year 1 milestones for OPAL-Foundation and the first
+  monograph conversions.
 ---
 
 Partners from Stanford, Emerald Cloud Lab, Purdue, Morehouse, and the

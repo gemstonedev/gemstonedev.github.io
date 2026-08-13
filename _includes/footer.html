@@ -12,6 +12,7 @@
       <a href="{{ '/vision/' | relative_url }}">Vision</a>
       <a href="{{ '/team/' | relative_url }}">Team</a>
       <a href="{{ '/publications/' | relative_url }}">Publications</a>
+      <a href="{{ '/education/' | relative_url }}">Education</a>
     </div>
     <div class="site-footer__col">
       <span class="label">More</span>
@@ -22,8 +23,11 @@
   </div>
   <div class="site-footer__legal">
     <div class="wrap">
-      <p>Supported by the National Science Foundation under Award No.&nbsp;{{ site.nsf_award | default: '0000000' }}.</p>
-      <p>Stanford &middot; Emerald Cloud Lab &middot; Purdue &middot; Morehouse</p>
+      <p class="site-footer__nsf">
+        <img src="{{ '/assets/img/nsf-logo.svg' | relative_url }}" alt="U.S. National Science Foundation logo" width="52" height="52">
+        <span>Supported by the U.S. National Science Foundation under Award No.&nbsp;{{ site.nsf_award | default: '2607573' }}.</span>
+      </p>
+      <p>Stanford &middot; Emerald Cloud Lab &middot; Purdue &middot; Morehouse &middot; U.S.&nbsp;Pharmacopeia</p>
     </div>
   </div>
 </footer>

@@ -11,7 +11,7 @@ description: >-
     <div class="hero__main">
       <span class="kicker">NSF Programmable Cloud Laboratory Test Bed</span>
       <h1>Building America&rsquo;s AI infrastructure for self-driving laboratories</h1>
-      <p class="hero__lede">Scientists should be able to describe an experiment the way they normally would, in prose, and have it run reliably in an automated laboratory. GEMSTONE develops the representation and the AI agents that make that possible, at a programmable cloud laboratory node operated by Emerald Cloud Lab in Austin, Texas.</p>
+      <p class="hero__lede">Scientists should be able to describe an experiment the way they naturally would &mdash; in prose &mdash; and have it run reliably in any automated laboratory. GEMSTONE builds the open infrastructure that makes this possible: OPAL, a machine-actionable standard for specifying an experiment once and running it at any lab that adopts it, and AI agents that translate written protocols into executable workflows. Every experiment yields FAIR outputs &mdash; AI-ready data, metadata, and provenance, shared as scientific products in their own right. The work begins at Emerald Cloud Lab in Austin, Texas &mdash; and sets the shared standards for a national network of twenty programmable cloud laboratories.</p>
       <div class="btn-row">
         <a class="btn btn--primary" href="{{ '/vision/' | relative_url }}">Read the approach</a>
         <a class="btn btn--ghost" href="{{ '/contact/' | relative_url }}">Get in touch</a>
@@ -26,10 +26,10 @@ description: >-
 
 <section class="stats">
   <div class="wrap">
-    <div class="stat"><div class="stat__n">740</div><div class="stat__l">programmable instruments</div></div>
-    <div class="stat"><div class="stat__n">320</div><div class="stat__l">unique instrument types</div></div>
+    <div class="stat"><div class="stat__n">740+</div><div class="stat__l">programmable instruments</div></div>
+    <div class="stat"><div class="stat__n">320+</div><div class="stat__l">unique instrument types</div></div>
     <div class="stat"><div class="stat__n">100,000</div><div class="stat__l">sq ft computer-controlled facility</div></div>
-    <div class="stat"><div class="stat__n">5</div><div class="stat__l">partner institutions</div></div>
+    <div class="stat"><div class="stat__n">5</div><div class="stat__l">partner organizations</div></div>
   </div>
 </section>
 
@@ -95,6 +95,34 @@ description: >-
 
 <section class="wrap section">
   <div class="split">
+    <div class="rail rail--sticky"><h2>Open by design</h2></div>
+    <div class="flow flow--tight">
+      <p>GEMSTONE is laying the shared, interoperable foundations for a national network of self-driving labs &mdash; open infrastructure that any researcher, institution, or lab can build on.</p>
+      <div class="cells cells--2">
+        <div class="cell">
+          <h3>An open standard</h3>
+          <p>OPAL is an open, implementation-agnostic standard &mdash; meant to do for laboratory automation <a href="{{ '/vision/' | relative_url }}">what STEP did for manufacturing</a>: a shared interchange layer before each node becomes too siloed to interact with the others.</p>
+        </div>
+        <div class="cell">
+          <h3>Open-source execution</h3>
+          <p>Emerald&rsquo;s Symbolic Lab Language is contributed to the Test Bed under an open-source license.</p>
+        </div>
+        <div class="cell">
+          <h3>Open artifacts</h3>
+          <p>Trained models, OPAL templates, evaluation harnesses, and training data are shared under open licenses through a public GitHub repository.</p>
+        </div>
+        <div class="cell">
+          <h3>FAIR-compliant</h3>
+          <p>OPAL specifications are versioned, provenance-tracked, and shared in open formats, so other nodes can inspect, re-execute, and extend workflows.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section--tint">
+  <div class="wrap">
+    <div class="split">
     <div class="rail">
       <h2>Latest</h2>
       <a class="rail__more" href="{{ '/news/' | relative_url }}">All news &rarr;</a>
@@ -109,6 +137,7 @@ description: >-
         </div>
       </a>
       {% endfor %}
+    </div>
     </div>
   </div>
 </section>

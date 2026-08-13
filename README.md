@@ -28,8 +28,9 @@ workflow is needed — every plugin used here is on the Pages allowlist.
 
 | What | Where |
 |---|---|
-| **NSF award number** | `_config.yml` → `nsf_award`. Currently `0000000`. One edit updates the footer, the acknowledgments page, and the citation block. |
-| **Email addresses** | `contact.html`. All four are invented placeholders. |
+| **NSF award number** | `_config.yml` → `nsf_award`. Set to `2607573`. One edit updates the footer, the acknowledgments page, and the citation block. |
+| **Email addresses** | `contact.html`. All four cells currently point at `gemstone@stanford.edu` with subject-line hints — confirm that alias is live and monitored, and split into dedicated `access@`/`outreach@`/`press@` aliases once provisioned. |
+| **Social card** | `assets/img/social-card.png` (1200×630), referenced from `_includes/head.html` for Open Graph / Twitter previews. Regenerate if the tagline or partners change. |
 | **News posts** | `_posts/`. The two entries are drafted from the proposal, not published announcements — confirm dates and wording. |
 | **Newsletter signup** | `news.html` currently links to a `mailto:` subscribe button. Swap it for a real list (Mailchimp, Buttondown, or a Google Form) once one exists. |
 
@@ -42,7 +43,7 @@ _config.yml            site settings, NSF award number
 _data/
   navigation.yml       primary nav — add or reorder items here
   team.yml             leads + project staff
-  partners.yml         the five institutions (used on home and team)
+  partners.yml         the five partner organizations (used on home and team)
 _includes/
   head.html            meta, fonts, stylesheet
   header.html          sticky header + nav (marks current page)
@@ -103,7 +104,8 @@ text (card copy, footer, metadata) stays in the 14–17px range — nothing belo
 |---|---|---|
 | `--navy` | `#12497E` | wordmark, links, primary buttons, stat numerals |
 | `--deep` | `#001327` | hero, footer, CTA panels |
-| `--accent` | `#E36C09` | rail rules, active nav underline, mark centre, hover |
+| `--accent` | `#E36C09` | rail rules, active nav underline, mark centre — graphic elements only |
+| `--accent-ink` | `#B85500` | orange for small text and hover states (4.8:1 on white, WCAG AA) |
 | `--ink` | `#16202B` | headings, body on light |
 | `--body` | `#3C4A59` | long-form paragraphs |
 | `--muted` | `#5C6875` | card copy |

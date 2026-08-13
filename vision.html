@@ -2,13 +2,17 @@
 layout: page
 title: Vision
 summary: What a self-driving laboratory is, and what stands in the way of one.
+description: >-
+  How GEMSTONE turns written experimental protocols into machine-actionable
+  workflows: the open OPAL standard, the ORE disambiguation agent, and the TROVE
+  translator into node execution languages.
 permalink: /vision/
 ---
-<p class="lede">A self-driving laboratory takes an experimental goal, plans the work, runs it on real instruments, reads the results, and decides what to do next &mdash; without a person at the bench. The instruments for this already exist. The specification layer does not.</p>
+<p class="lede">A self-driving laboratory takes an experimental goal, plans the work, runs it on real instruments, reads the results, and decides what to do next &mdash; without a person at the bench. The instruments for this already exist &mdash; the node alone has more than 740, spanning analytical and synthetic chemistry, biology, and materials science. The specification layer does not.</p>
 
 <div class="stack">
   <h2>The bottleneck is method transfer</h2>
-  <p>Through fifteen years of operation, Emerald Cloud Lab has found that the hardest part of running an automated experiment is writing the specification for it. A formal, complete protocol is exceedingly difficult to write, even with experience and training. The usual failure is under-specification: researchers are not accustomed to thinking through the low-level details that are normally left unsaid.</p>
+  <p>Laboratory methods are written for human interpretation: critical details are left ambiguous, results are difficult to reproduce, and procedures are hard to scale across institutions. Through fifteen years of operation, Emerald Cloud Lab has found that the hardest part of running an automated experiment is writing the specification for it. A formal, complete protocol is exceedingly difficult to write, even with experience and training. The usual failure is under-specification: researchers are not accustomed to thinking through the low-level details that are normally left unsaid.</p>
   <p>Laboratory automation today is built on rigid abstractions tied to particular instrument models and software packages. Emerald&rsquo;s Symbolic Lab Language is detailed, specific to its facility, and not easily adapted elsewhere. Translating written methods into it requires trained specialists. What is missing is an intermediary layer between natural language and platform-specific languages.</p>
 </div>
 
@@ -33,17 +37,29 @@ permalink: /vision/
       <span class="objective__tag">TROVE</span>
       <div>
         <h3>A translator into node languages</h3>
-        <p>The Training Method of Inducing a Verifiable and Efficient Toolbox of Functions converts OPAL representations into a node&rsquo;s execution language, beginning with SLL at Emerald and extending to any node-dependent language as the Test Bed network grows.</p>
+        <p>TROVE &mdash; a training method that induces a verifiable and efficient toolbox of functions &mdash; converts OPAL representations into a node&rsquo;s execution language, beginning with SLL at Emerald and extending to any node-dependent language as the Test Bed network grows.</p>
       </div>
     </div>
   </div>
+  <p>Across all three, benchmarking, provenance tracking, and reliability assessment are built in from the start, so that autonomous experimentation stays safe, auditable, and reproducible.</p>
 </div>
 
 <div class="stack">
   <h2>The science driver</h2>
-  <p>The project begins with U.S. Pharmacopeia monographs, which describe analytical laboratory procedures in prose. Different laboratories &mdash; and different technicians within one laboratory &mdash; execute them differently, and small differences in purity, solvent, or temperature change the result. It is a well-constrained problem that prioritizes reproducibility and precision, which makes it a good first test. Later years extend to broader biotechnology characterization drivers.</p>
+  <p>The project begins with U.S. Pharmacopeia monographs, which describe analytical laboratory procedures in prose. Different laboratories &mdash; and different technicians within one laboratory &mdash; execute them differently, and small differences in purity, solvent, or temperature change the result. It is a well-constrained problem that prioritizes reproducibility and precision, which makes it a good first test &mdash; and one with direct consequences beyond the lab, demonstrating scalable pharmaceutical quality testing in support of resilient domestic manufacturing. Later years extend to broader biotechnology characterization drivers.</p>
+</div>
+
+<div class="stack">
+  <h2>A network, not a node</h2>
+  <p>OPAL is designed to be independent of any single facility: TROVE translates it into each node&rsquo;s internal language, beginning with Emerald&rsquo;s SLL. GEMSTONE serves as the interoperability hub for the national programmable cloud laboratory network &mdash; consulting with the other funded nodes on APIs and data standards, and spearheading the language-design effort that lets nodes share, validate, and execute experiments through common, machine-actionable standards.</p>
 </div>
 
 <div class="pull">
   <p>OPAL is meant to do for laboratory automation what STEP did for manufacturing: create a shared interchange layer before each node becomes too siloed to interact with the others.</p>
+</div>
+
+<div class="stack">
+  <h2>Why it matters</h2>
+  <p>Removing the specification bottleneck means faster discovery, more reproducible results, and broader access to advanced experimental capability &mdash; for universities, startups, nonprofits, government laboratories, and small businesses that have never had a route into automated experimentation.</p>
+  <p>Along the way, the project trains a workforce fluent in AI, biotechnology, and advanced manufacturing &mdash; an investment in U.S. competitiveness, pharmaceutical supply-chain resilience, economic growth, and national security.</p>
 </div>
