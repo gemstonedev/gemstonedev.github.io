@@ -11,7 +11,7 @@ description: >-
     <div class="hero__main">
       <span class="kicker">NSF Programmable Cloud Laboratory Test Bed</span>
       <h1>Building America&rsquo;s AI infrastructure for self-driving laboratories</h1>
-      <p class="hero__lede">Scientists should be able to describe an experiment the way they naturally would &mdash; in prose &mdash; and have it run reliably in any automated laboratory. GEMSTONE builds the open infrastructure that makes this possible: OPAL, a machine-actionable standard for specifying an experiment once and running it at any lab that adopts it, and AI agents that translate written protocols into executable workflows. Every experiment yields FAIR outputs &mdash; AI-ready data, metadata, and provenance, shared as scientific products in their own right. The work begins at Emerald Cloud Lab in Austin, Texas &mdash; and sets the shared standards for a national network of twenty programmable cloud laboratories.</p>
+      <p class="hero__lede">Scientists should be able to describe an experiment the way they naturally would &mdash; in prose &mdash; and have it run reliably in any automated laboratory. GEMSTONE builds the open standards and AI agents that make this possible &mdash; starting at Emerald Cloud Lab and setting the pattern for a national network of programmable cloud laboratories.</p>
       <div class="btn-row">
         <a class="btn btn--primary" href="{{ '/vision/' | relative_url }}">Read the approach</a>
         <a class="btn btn--ghost" href="{{ '/contact/' | relative_url }}">Get in touch</a>
@@ -79,16 +79,10 @@ description: >-
 <section class="section--tint">
   <div class="wrap">
     <div class="split">
-      <div class="rail"><h2>Partners</h2></div>
-      <div class="cells cells--5">
-        {% for p in site.data.partners %}
-        <div class="cell partner">
-          {% if p.logo %}<span class="partner__logo"><img src="{{ p.logo | relative_url }}" alt="" loading="lazy"></span>{% endif %}
-          <h3{% if p.logo %} class="sr-only"{% endif %}>{{ p.name }}</h3>
-          <span class="cell__meta">{{ p.location }}</span>
-          <p>{{ p.role }}</p>
-        </div>
-        {% endfor %}
+      <div class="rail rail--sticky"><h2>Partners</h2></div>
+      <div class="flow flow--tight">
+        <p>One distributed laboratory spanning five organizations. Select a site to see what each contributes.</p>
+        {% include team-map.html %}
       </div>
     </div>
   </div>

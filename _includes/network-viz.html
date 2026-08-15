@@ -1,0 +1,141 @@
+<div class="netviz is-hub" data-netviz>
+  <div class="netviz__switch" role="group" aria-label="Compare interoperability approaches">
+    <button class="netviz__mode" type="button" data-netviz-mode="mesh" aria-pressed="false">Without a shared standard</button>
+    <button class="netviz__mode" type="button" data-netviz-mode="hub" aria-pressed="true">With OPAL</button>
+  </div>
+
+  <div class="netviz__stage">
+    <svg class="netviz__svg" viewBox="0 0 720 420" role="img"
+         aria-label="Two views of a growing network of laboratory nodes, each speaking its own execution language. Emerald Cloud Lab is the first node; the others are illustrative, and a dashed node stands for the labs still to join. Without a shared standard, every pair of nodes needs its own translation: fifteen for the six shown, and the count grows with the square of the network. With OPAL as a shared hub, each node translates once, to the standard: one connection per node, however many nodes there are.">
+
+      <!-- every-pair mesh: the world without a shared standard -->
+      <g class="netviz__mesh" aria-hidden="true">
+        <line x1="360" y1="60"  x2="594" y2="135"/>
+        <line x1="360" y1="60"  x2="594" y2="285"/>
+        <line x1="360" y1="60"  x2="360" y2="360"/>
+        <line x1="360" y1="60"  x2="126" y2="285"/>
+        <line class="netviz__link--ghost" x1="360" y1="60"  x2="126" y2="135"/>
+        <line x1="594" y1="135" x2="594" y2="285"/>
+        <line x1="594" y1="135" x2="360" y2="360"/>
+        <line x1="594" y1="135" x2="126" y2="285"/>
+        <line class="netviz__link--ghost" x1="594" y1="135" x2="126" y2="135"/>
+        <line x1="594" y1="285" x2="360" y2="360"/>
+        <line x1="594" y1="285" x2="126" y2="285"/>
+        <line class="netviz__link--ghost" x1="594" y1="285" x2="126" y2="135"/>
+        <line x1="360" y1="360" x2="126" y2="285"/>
+        <line class="netviz__link--ghost" x1="360" y1="360" x2="126" y2="135"/>
+        <line class="netviz__link--ghost" x1="126" y1="285" x2="126" y2="135"/>
+      </g>
+
+      <!-- one spoke per node: the world with OPAL -->
+      <g class="netviz__spokes" aria-hidden="true">
+        <line x1="360" y1="210" x2="360" y2="60"/>
+        <line x1="360" y1="210" x2="594" y2="135"/>
+        <line x1="360" y1="210" x2="594" y2="285"/>
+        <line x1="360" y1="210" x2="360" y2="360"/>
+        <line x1="360" y1="210" x2="126" y2="285"/>
+        <line class="netviz__link--ghost" x1="360" y1="210" x2="126" y2="135"/>
+      </g>
+
+      <!-- the OPAL hub -->
+      <g class="netviz__hub" aria-hidden="true">
+        <g transform="translate(360 210)">
+          <rect class="netviz__hub-gem" x="-33" y="-33" width="66" height="66"/>
+          <text class="netviz__hub-name" y="5">OPAL</text>
+          <text class="netviz__hub-sub" y="64">GEMSTONE &middot; open standard</text>
+        </g>
+      </g>
+
+      <!-- the first node, illustrative future nodes, and an open slot for the rest -->
+      <g class="netviz__nodes" aria-hidden="true">
+        <g class="netviz__node netviz__node--live" transform="translate(360 60)">
+          <rect x="-67" y="-24" width="134" height="48"/>
+          <line class="netviz__node-key" x1="-67" y1="-24" x2="-67" y2="24"/>
+          <text class="netviz__node-name" y="-3">Emerald Cloud Lab</text>
+          <text class="netviz__node-sub" y="14">speaks SLL &mdash; first node</text>
+        </g>
+        <g class="netviz__node" transform="translate(594 135)">
+          <rect x="-64" y="-24" width="128" height="48"/>
+          <line class="netviz__node-key" x1="-64" y1="-24" x2="-64" y2="24"/>
+          <text class="netviz__node-name" y="-3">Cloud lab</text>
+          <text class="netviz__node-sub" y="14">its own language</text>
+        </g>
+        <g class="netviz__node" transform="translate(594 285)">
+          <rect x="-64" y="-24" width="128" height="48"/>
+          <line class="netviz__node-key" x1="-64" y1="-24" x2="-64" y2="24"/>
+          <text class="netviz__node-name" y="-3">Biofoundry</text>
+          <text class="netviz__node-sub" y="14">its own language</text>
+        </g>
+        <g class="netviz__node" transform="translate(360 360)">
+          <rect x="-64" y="-24" width="128" height="48"/>
+          <line class="netviz__node-key" x1="-64" y1="-24" x2="-64" y2="24"/>
+          <text class="netviz__node-name" y="-3">University lab</text>
+          <text class="netviz__node-sub" y="14">its own language</text>
+        </g>
+        <g class="netviz__node" transform="translate(126 285)">
+          <rect x="-64" y="-24" width="128" height="48"/>
+          <line class="netviz__node-key" x1="-64" y1="-24" x2="-64" y2="24"/>
+          <text class="netviz__node-name" y="-3">Core facility</text>
+          <text class="netviz__node-sub" y="14">its own language</text>
+        </g>
+        <g class="netviz__node netviz__node--ghost" transform="translate(126 135)">
+          <rect x="-64" y="-24" width="128" height="48"/>
+          <text class="netviz__node-name" y="-3">&hellip;and more</text>
+          <text class="netviz__node-sub" y="14">any lab can join</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="netviz__captions" aria-live="polite">
+    <p class="netviz__caption netviz__caption--mesh">
+      <span class="netviz__count">15</span>
+      <span class="netviz__captext"><strong>translations, built and maintained by hand &mdash; for just the six nodes shown.</strong> Every pair of execution languages needs its own translation, so the work grows with the square of the network: ten labs need 45, twenty need 190.</span>
+    </p>
+    <p class="netviz__caption netviz__caption--hub">
+      <span class="netviz__count">6</span>
+      <span class="netviz__captext"><strong>translations &mdash; one per node, however many nodes there are.</strong> Each lab connects once, to the shared standard, and can exchange, validate, and execute every other lab&rsquo;s experiments. Twenty labs need 20 translations, not 190.</span>
+    </p>
+  </div>
+
+  <p class="netviz__legend">Illustrative &mdash; Emerald Cloud Lab is the network&rsquo;s first node. The other nodes stand for the kinds of labs that can join, not specific partners, and the network is open-ended.</p>
+
+  <noscript><style>.netviz__switch{display:none}</style></noscript>
+</div>
+
+<script>
+  (function () {
+    var root = document.querySelector('[data-netviz]');
+    if (!root) return;
+    var buttons = Array.prototype.slice.call(root.querySelectorAll('[data-netviz-mode]'));
+    var touched = false;
+
+    function setMode(mode) {
+      root.classList.toggle('is-hub', mode === 'hub');
+      buttons.forEach(function (b) {
+        b.setAttribute('aria-pressed', b.getAttribute('data-netviz-mode') === mode ? 'true' : 'false');
+      });
+    }
+
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () {
+        touched = true;
+        setMode(b.getAttribute('data-netviz-mode'));
+      });
+    });
+
+    // tell the story: open on the tangle, then resolve into the hub —
+    // unless the visitor has already taken the controls
+    if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches && 'IntersectionObserver' in window) {
+      setMode('mesh');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          io.disconnect();
+          setTimeout(function () { if (!touched) setMode('hub'); }, 2600);
+        });
+      }, { threshold: 0.5 });
+      io.observe(root);
+    }
+  })();
+</script>

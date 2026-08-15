@@ -1,41 +1,67 @@
-leads:
-  - name: Mark Musen
+# photo: filename inside assets/img/team/ (square images work best).
+# If the file is missing the site shows an initials placeholder instead.
+# bio is optional — rows without one render as a compact identity row.
+# group: pis | leadership — controls which subsection the person appears in.
+people:
+  - name: Mark A. Musen, MD, PhD
+    photo: mark-musen.jpg
     role: Principal Investigator
     org: Stanford University
+    group: pis
     bio: >-
       Stanford Medicine Professor of Biomedical Informatics Research, and professor
       of Medicine and of Biomedical Data Science. Leads Stanford's Division of
       Computational Medicine, with research in open science, data stewardship, and
       intelligent systems. Member of the National Academy of Medicine.
-  - name: D.J. Kleinbaum
-    role: Co-PI &middot; Science Lead
+  - name: D.J. Kleinbaum, PhD
+    photo: dj-kleinbaum.jpg
+    role: Co-PI &amp; Science Lead
     org: Emerald Cloud Lab
+    group: pis
     bio: >-
       Co-founder of Emerald Cloud Lab and inventor of the cloud laboratory concept.
       Has worked with the National Security Commission on Emerging Biotechnology on
       its recommendations around cloud labs.
-  - name: Gaurav Chopra
-    role: Co-PI &middot; AI Lead
+  - name: Gaurav Chopra, PhD
+    photo: gaurav-chopra.jpg
+    role: Co-PI &amp; AI Lead
     org: Purdue University
+    group: pis
     bio: >-
       Develops finite-state AI agent frameworks for reliable, auditable control of
       laboratory workflows, including SciBORG and CLAW. His group's agent stack is
       integrated at NIH NCATS.
-  - name: Juana Mendenhall
-    role: Co-PI &middot; Education Lead
+  - name: Juana Mendenhall, PhD
+    photo: juana-mendenhall.jpg
+    role: Co-PI &amp; Education Lead
     org: Morehouse College
+    group: pis
     bio: >-
       Leads national initiatives in AI literacy, AI integration in curriculum, and
       automated science, with subject-matter expertise in autonomous polymer
       synthesis and characterization.
-
-staff:
-  - name: Kyle Larsen
-    role: Executive Committee
-    org: U.S. Pharmacopeia
-  - name: Christian Kindermann
-    role: Data &amp; Standards Lead
-    org: Stanford University
-  - name: Marcos Martínez-Romero
+  - name: Marcos Martínez-Romero, PhD, PMP
+    photo: marcos-martinez-romero.jpg
     role: Project Manager
     org: Stanford University
+    group: leadership
+  - name: Kyle Larsen
+    photo: kyle-larsen.jpg
+    role: Science Driver Lead
+    org: U.S. Pharmacopeia
+    group: leadership
+  - name: Christian Kindermann, PhD
+    photo: christian-kindermann.jpg
+    role: Data &amp; Standards Lead
+    org: Stanford University
+    group: leadership
+  - name: Chester Shiu
+    photo: chester-shiu.jpg
+    role: Research Security &amp; Biosafety Officer
+    org: Emerald Cloud Lab
+    group: leadership
+  - name: Ryan Quinn, PhD
+    photo: ryan-quinn.jpg
+    role: Operations &amp; User Support Lead
+    org: Emerald Cloud Lab
+    group: leadership

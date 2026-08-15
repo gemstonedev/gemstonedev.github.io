@@ -1,0 +1,148 @@
+<div class="teammap" data-teammap>
+  <div class="teammap__stage">
+    <svg class="teammap__svg" viewBox="12 6 952 606" role="img"
+         aria-label="Map of the United States showing the five GEMSTONE sites: Stanford, California; Austin, Texas; West Lafayette, Indiana; Atlanta, Georgia; and Rockville, Maryland.">
+      {% include us-lower48.svg %}
+      <g class="teammap__links" data-teammap-links aria-hidden="true"></g>
+      {% for p in site.data.partners %}
+      <g class="teammap__site" data-teammap-site="{{ forloop.index0 }}" transform="translate({{ p.map_x }} {{ p.map_y }})" aria-hidden="true">
+        <circle class="teammap__hit" r="22"/>
+        <circle class="teammap__pulse" r="6"/>
+        <circle class="teammap__dot" r="6"/>
+        <text class="teammap__sitename" x="15" y="1">{{ p.short }}</text>
+        <text class="teammap__siteloc" x="15" y="19">{{ p.location }}</text>
+      </g>
+      {% endfor %}
+    </svg>
+  </div>
+
+  <div class="teammap__side">
+    <div class="teammap__list" role="tablist" aria-label="GEMSTONE institutions" aria-orientation="vertical">
+      {% for p in site.data.partners %}
+      <button class="teammap__tab" role="tab" type="button"
+              id="teammap-tab-{{ forloop.index }}"
+              aria-controls="teammap-panel-{{ forloop.index }}"
+              {% if forloop.first %}aria-selected="true"{% else %}aria-selected="false" tabindex="-1"{% endif %}>
+        {% if p.icon %}<img class="teammap__tab-logo" src="{{ p.icon | relative_url }}" alt="" loading="lazy">{% endif %}
+        <span class="teammap__tab-text">
+          <span class="teammap__tab-name">{{ p.name }}</span>
+          <span class="teammap__tab-loc">{{ p.location }}</span>
+        </span>
+      </button>
+      {% endfor %}
+    </div>
+
+    <div class="teammap__panels">
+      {% for p in site.data.partners %}
+      <div class="teammap__panel {% if forloop.first %}is-active{% endif %}" role="tabpanel"
+           id="teammap-panel-{{ forloop.index }}" aria-labelledby="teammap-tab-{{ forloop.index }}"
+           tabindex="0" {% unless forloop.first %}hidden{% endunless %}>
+        <h3>{{ p.name }}</h3>
+        <span class="label label--accent">{{ p.role }}</span>
+        <p>{{ p.contribution }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <noscript><style>.teammap__panel[hidden]{display:flex!important}</style></noscript>
+</div>
+
+<script>
+  (function () {
+    var root = document.querySelector('[data-teammap]');
+    if (!root) return;
+    var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+    var panels = Array.prototype.slice.call(root.querySelectorAll('[role="tabpanel"]'));
+    var sites = Array.prototype.slice.call(root.querySelectorAll('[data-teammap-site]'));
+    var current = 0;
+
+    // constellation: a gentle arc between every pair of sites; the active
+    // site's arcs light up. Drawn here so no-JS visitors get a clean map.
+    var linkLayer = root.querySelector('[data-teammap-links]');
+    var links = [];
+    var pts = sites.map(function (g) {
+      var m = /translate\(([\d.]+)[ ,]([\d.]+)\)/.exec(g.getAttribute('transform'));
+      return [parseFloat(m[1]), parseFloat(m[2])];
+    });
+    for (var a = 0; a < pts.length; a++) {
+      for (var b = a + 1; b < pts.length; b++) {
+        var mx = (pts[a][0] + pts[b][0]) / 2, my = (pts[a][1] + pts[b][1]) / 2;
+        var dx = pts[b][0] - pts[a][0], dy = pts[b][1] - pts[a][1];
+        var d = Math.sqrt(dx * dx + dy * dy);
+        // control point perpendicular to the chord, bowing gently north
+        var cx = mx + (dy / d) * d * 0.12, cy = my - (dx / d) * d * 0.12;
+        var el = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        el.setAttribute('d', 'M' + pts[a] + ' Q' + [cx.toFixed(1), cy.toFixed(1)] + ' ' + pts[b]);
+        el.setAttribute('class', 'teammap__link');
+        el.dataset.a = a; el.dataset.b = b;
+        linkLayer.appendChild(el);
+        links.push(el);
+      }
+    }
+
+    function select(i, focus) {
+      current = i;
+      tabs.forEach(function (tab, j) {
+        var on = j === i;
+        tab.setAttribute('aria-selected', on ? 'true' : 'false');
+        tab.setAttribute('tabindex', on ? '0' : '-1');
+        panels[j].hidden = !on;
+        panels[j].classList.toggle('is-active', on);
+        sites[j].classList.toggle('is-active', on);
+      });
+      links.forEach(function (l) {
+        l.classList.toggle('is-active', +l.dataset.a === i || +l.dataset.b === i);
+      });
+      if (focus) tabs[i].focus();
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () { stop(); select(i); });
+      tab.addEventListener('keydown', function (e) {
+        var to = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') to = (i + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') to = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === 'Home') to = 0;
+        else if (e.key === 'End') to = tabs.length - 1;
+        if (to === null) return;
+        e.preventDefault();
+        stop();
+        select(to, true);
+      });
+    });
+
+    sites.forEach(function (g, i) {
+      g.addEventListener('click', function () { stop(); select(i); });
+      g.addEventListener('mouseenter', function () { select(i); });
+    });
+
+    select(0);
+
+    // gentle auto-advance until the visitor interacts, paused while hovered/focused
+    var timer = null, stopped = false;
+    if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) stopped = true;
+
+    function play() {
+      if (stopped || timer) return;
+      timer = setInterval(function () { select((current + 1) % tabs.length); }, 4200);
+    }
+    function pause() { clearInterval(timer); timer = null; }
+    function stop() { stopped = true; pause(); }
+
+    root.addEventListener('mouseenter', pause);
+    root.addEventListener('mouseleave', play);
+    root.addEventListener('focusin', stop);
+
+    if (!stopped && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) play(); else pause();
+        });
+      }, { threshold: 0.35 });
+      io.observe(root);
+    } else if (!stopped) {
+      play();
+    }
+  })();
+</script>

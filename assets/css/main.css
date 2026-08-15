@@ -184,7 +184,9 @@ img, svg { max-width: 100%; }
 .cells--2 { grid-template-columns: repeat(auto-fit, minmax(276px, 1fr)); }
 .cells--3 { grid-template-columns: repeat(auto-fit, minmax(232px, 1fr)); }
 .cells--5 { grid-template-columns: repeat(auto-fit, minmax(176px, 1fr)); }
-@media (min-width: 1000px) { .cells--5 { grid-template-columns: repeat(5, 1fr); } }
+/* 1100px, not 1000px: below that the five-across cells get too narrow and
+   the Emerald wordmark wraps to three lines, breaking cross-cell alignment */
+@media (min-width: 1100px) { .cells--5 { grid-template-columns: repeat(5, 1fr); } }
 .cell { background: var(--paper); padding: 26px 30px; display: flex; flex-direction: column; gap: 8px; }
 .cell--tint { background: var(--tint); }
 .cell h3 { font-size: 18px; font-weight: 600; }
@@ -203,13 +205,19 @@ img, svg { max-width: 100%; }
 /* partner strip */
 .partner h3 { font-size: 16px; line-height: 1.3; }
 .partner p { font-size: 14px; line-height: 1.55; padding-top: 4px; }
-.partner__logo { display: flex; align-items: center; height: 30px; }
-.partner__logo img {
-  max-height: 26px; width: auto; max-width: 100%;
-  filter: grayscale(1); opacity: 0.75;
-  transition: filter .25s ease, opacity .25s ease;
+/* location sits at the cell's bottom edge so a long city name ("West
+   Lafayette, IN") can wrap without pushing the role text out of line
+   with the neighboring cells */
+.partner .cell__meta { order: 1; margin-top: auto; padding-top: 6px; }
+/* per-logo heights come from partners.yml (logo_h), tuned so the marks
+   carry equal visual weight despite very different aspect ratios */
+.partner { padding-left: 24px; padding-right: 24px; }
+.partner__logo { display: flex; align-items: center; gap: 9px; min-height: 32px; }
+.partner__wordmark {
+  font-family: var(--display); font-size: 14px; font-weight: 600;
+  line-height: 1.15; letter-spacing: 0.01em; color: var(--ink);
 }
-.partner:hover .partner__logo img { filter: none; opacity: 1; }
+.partner__logo img { max-height: 30px; width: auto; max-width: 100%; }
 
 /* cell icons */
 .cell__icon { color: var(--navy); margin-bottom: 4px; }
@@ -229,14 +237,31 @@ img, svg { max-width: 100%; }
 .inst h3 { font-size: 17px; font-weight: 600; }
 .inst p { font-size: 16px; line-height: 1.65; color: var(--muted); }
 
-/* people */
-.person { padding: 30px; gap: 10px; }
-.person h3 { font-family: var(--display); font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+/* people — PI rows: portrait left, identity + bio right */
+.person {
+  padding: 32px 30px;
+  display: grid; grid-template-columns: 132px minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  column-gap: 30px; row-gap: 14px;
+  align-items: start;
+}
+.person h3 { font-family: var(--display); font-size: 23px; font-weight: 700; letter-spacing: -0.01em; }
+.person__meta { display: flex; flex-direction: column; gap: 7px; }
 .person__org { font-size: 16px; color: var(--muted); }
-.person p { margin-top: 8px; }
-.person--compact { padding: 26px 30px; gap: 7px; }
-.person--compact h3 { font-size: 19px; font-weight: 600; letter-spacing: 0; }
-.person--compact .person__org { font-size: 15px; }
+.person__bio { grid-column: 2; font-size: 17px; line-height: 1.7; color: var(--body); max-width: 620px; }
+.person__photo {
+  grid-row: 1 / 3; width: 132px; height: 132px; object-fit: cover; flex: none;
+  border-radius: 50%;
+}
+.person__photo--placeholder {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--tint) url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20120%20120'%3E%3Cg%20transform='rotate(45%2060%2060)'%20fill='%2312497E'%20fill-opacity='0.05'%3E%3Crect%20x='18'%20y='18'%20width='24'%20height='24'/%3E%3Crect%20x='48'%20y='18'%20width='24'%20height='24'/%3E%3Crect%20x='78'%20y='18'%20width='24'%20height='24'/%3E%3Crect%20x='18'%20y='48'%20width='24'%20height='24'/%3E%3Crect%20x='48'%20y='48'%20width='24'%20height='24'/%3E%3Crect%20x='78'%20y='48'%20width='24'%20height='24'/%3E%3Crect%20x='18'%20y='78'%20width='24'%20height='24'/%3E%3Crect%20x='48'%20y='78'%20width='24'%20height='24'/%3E%3Crect%20x='78'%20y='78'%20width='24'%20height='24'/%3E%3C/g%3E%3C/svg%3E") no-repeat center / 130%;
+  color: var(--navy);
+  font-family: var(--display); font-size: 34px; font-weight: 700; letter-spacing: 0.02em;
+}
+/* rows without a bio: identity block centers against the portrait */
+.person--brief .person__meta { grid-row: 1 / 3; align-self: center; }
+.team-note { font-size: 15px; line-height: 1.6; color: var(--quiet); }
 
 /* contact cells */
 .contact-cell a { font-family: var(--display); font-size: 18px; font-weight: 600; overflow-wrap: anywhere; }
@@ -333,6 +358,13 @@ a.news-item:hover { background: var(--tint); color: var(--ink); }
   .flow p, .post-body p, .post-body ul { font-size: 17px; }
   .flow .lede { font-size: 20px; }
   .cell, .contact-cell, .person { padding: 22px; }
+  .person { grid-template-columns: 84px minmax(0, 1fr); column-gap: 18px; }
+  .person__photo { grid-row: 1; width: 84px; height: 84px; }
+  .person__photo--placeholder { font-size: 24px; }
+  .person__meta { align-self: center; }
+  .person h3 { font-size: 20px; }
+  .person__bio { grid-column: 1 / -1; }
+  .person--brief .person__meta { grid-row: 1; }
   .cta { padding: 26px 24px; }
 }
 
@@ -355,6 +387,325 @@ a.news-item:hover { background: var(--tint); color: var(--ink); }
   color: var(--accent-ink); margin-bottom: 6px;
 }
 .roadmap p { font-size: 15px; line-height: 1.6; color: var(--muted); }
+
+/* ---------- interactive pipeline (vision) ---------- */
+.pipeviz { display: flex; flex-direction: column; gap: 18px; margin-top: 8px; }
+
+.pipeviz__stages {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 20px minmax(0,1fr) 20px minmax(0,1fr) 20px minmax(0,1fr) 20px minmax(0,1fr);
+  align-items: stretch;
+}
+.pipeviz__arrow { display: flex; align-items: center; justify-content: center; color: #B7C3D0; }
+.pipeviz__arrow svg { width: 16px; height: 16px; transition: color .2s ease; }
+.pipeviz__arrow.is-past { color: var(--accent); }
+
+.pipeviz__stage {
+  position: relative; cursor: pointer; text-align: left;
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--rule); border-top: 3px solid var(--rule);
+  padding: 16px 14px 14px; margin: 0;
+  display: flex; flex-direction: column; gap: 10px;
+  font-family: var(--text);
+  transition: border-color .2s ease, background-color .2s ease;
+}
+.pipeviz__stage:hover { border-color: #AFBCCA; border-top-color: #AFBCCA; }
+.pipeviz__stage[aria-selected="true"] {
+  background: var(--tint); border-top-color: var(--accent);
+  box-shadow: 0 8px 20px rgba(18, 73, 126, 0.09);
+}
+.pipeviz__stage[aria-selected="true"] .icon { color: var(--accent-ink); }
+.pipeviz__stage.is-past { border-top-color: #F0C69C; }
+.pipeviz__stage.is-past .icon { opacity: 0.72; }
+.pipeviz__stage .icon { width: 24px; height: 24px; color: var(--navy); transition: color .2s ease, opacity .2s ease; }
+.pipeviz__num { color: var(--accent-ink); margin-right: 7px; }
+
+/* fills under the active stage while auto-advance is running (duration matches the JS interval) */
+.pipeviz__stage::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  background: var(--accent); transform: scaleX(0); transform-origin: left;
+}
+.pipeviz__stage.is-timing::after { animation: pipeviz-timer 4.2s linear forwards; }
+@keyframes pipeviz-timer { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.pipeviz__meta { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.pipeviz__tag {
+  font-family: var(--display); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--quiet);
+}
+.pipeviz__name { font-family: var(--display); font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
+.pipeviz__desc { font-size: 13px; line-height: 1.45; color: var(--muted); }
+.pipeviz__ai {
+  position: absolute; top: -9px; right: 10px;
+  font-family: var(--display); font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+  color: var(--deep); background: var(--accent); padding: 2px 7px;
+}
+
+/* dashed return path: PCL Test Bed back to ORE */
+.pipeviz__loop {
+  grid-column: 3 / 10; position: relative; height: 18px; margin: 0 13%;
+  border: 1px dashed #B7C3D0; border-top: 0;
+  transition: border-color .3s ease;
+}
+/* at the execution stage, the return path comes alive */
+.pipeviz.is-looping .pipeviz__loop { border-color: var(--accent); }
+.pipeviz.is-looping .pipeviz__loop::before { border-bottom-color: var(--accent); }
+.pipeviz.is-looping .pipeviz__loop-label { color: var(--accent-ink); }
+.pipeviz__track { display: flex; flex-direction: column; }
+.pipeviz__loop::before {
+  content: ""; position: absolute; top: -7px; left: -5.5px; width: 0; height: 0;
+  border-left: 5px solid transparent; border-right: 5px solid transparent;
+  border-bottom: 7px solid #9FB0C0;
+}
+.pipeviz__loop-label {
+  position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 50%);
+  background: var(--paper); padding: 0 12px; white-space: nowrap;
+  font-family: var(--display); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--quiet);
+}
+
+/* FAIR outputs: what every cycle of the loop publishes */
+.pipeviz__fair {
+  grid-column: 1 / -1;
+  display: flex; flex-direction: column; align-items: center; gap: 7px;
+  text-align: center;
+}
+.pipeviz__fair::before {
+  content: ""; width: 0; height: 14px;
+  border-left: 1px dashed #B7C3D0; transition: border-color .3s ease;
+}
+.pipeviz__fair-line { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 12px; }
+.pipeviz__fair-tag {
+  font-family: var(--display); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent-ink); border: 1px solid var(--accent); padding: 2px 8px;
+  transition: background-color .3s ease, color .3s ease;
+}
+.pipeviz__fair-terms {
+  font-family: var(--display); font-size: 12.5px; font-weight: 600;
+  letter-spacing: 0.05em; color: var(--muted);
+}
+.pipeviz__fair-terms b { font-weight: 700; color: var(--accent-ink); }
+.pipeviz__fair-desc { font-size: 13px; color: var(--quiet); }
+.pipeviz.is-looping .pipeviz__fair::before { border-color: var(--accent); }
+.pipeviz.is-looping .pipeviz__fair-tag { background: var(--accent); color: var(--deep); }
+
+.pipeviz__panel {
+  border: 1px solid var(--rule); background: var(--tint);
+  padding: 22px 26px; flex-direction: column; gap: 6px; display: none;
+}
+.pipeviz__panel.is-active { display: flex; }
+@media (prefers-reduced-motion: no-preference) {
+  .pipeviz__panel.is-active { animation: pipeviz-fade .32s ease both; }
+}
+@keyframes pipeviz-fade { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+.pipeviz .pipeviz__panel h3 { font-size: 17px; font-weight: 600; }
+.pipeviz .pipeviz__panel p { font-size: 16px; line-height: 1.65; color: var(--body); }
+
+@media (max-width: 759px) {
+  .pipeviz__stages { grid-template-columns: minmax(0, 1fr); }
+  .pipeviz__arrow { padding: 5px 0; }
+  .pipeviz__arrow svg { transform: rotate(90deg); }
+  .pipeviz__stage { flex-direction: row; align-items: center; gap: 14px; padding: 14px 16px; border-top-width: 1px; border-left-width: 3px; }
+  .pipeviz__stage[aria-selected="true"] { border-top-color: var(--rule); border-left-color: var(--accent); }
+  .pipeviz__stage.is-past { border-top-color: var(--rule); border-left-color: #F0C69C; }
+  .pipeviz__stage:hover { border-top-color: #AFBCCA; }
+  .pipeviz__loop { display: none; }
+  .pipeviz__fair { margin-top: 4px; }
+  .pipeviz__fair::before { display: none; }
+  .pipeviz__panel { padding: 20px; }
+}
+
+/* the loop needs the track to be one grid so it can span stage columns */
+@media (min-width: 760px) {
+  .pipeviz__track { display: grid; grid-template-columns: minmax(0,1fr) 20px minmax(0,1fr) 20px minmax(0,1fr) 20px minmax(0,1fr) 20px minmax(0,1fr); row-gap: 12px; }
+  .pipeviz__stages { display: contents; }
+}
+
+/* ---------- network viz (vision): pairwise tangle vs the OPAL hub ---------- */
+.netviz { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
+
+.netviz__switch { display: flex; flex-wrap: wrap; gap: 8px; }
+.netviz__mode {
+  cursor: pointer; font-family: var(--display); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--body);
+  background: var(--paper); border: 1px solid var(--rule); padding: 9px 16px;
+  transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+}
+.netviz__mode:hover { border-color: #AFBCCA; color: var(--ink); }
+.netviz__mode[aria-pressed="true"] {
+  background: var(--deep); border-color: var(--deep); color: #fff;
+  box-shadow: inset 0 -3px 0 var(--accent);
+}
+
+.netviz__stage { border: 1px solid var(--rule); background: var(--paper); padding: 10px; }
+.netviz__svg { display: block; width: 100%; height: auto; }
+
+/* the tangle: one hand-maintained translation per pair */
+.netviz__mesh line { stroke: #9FB0C0; stroke-width: 1.3; transition: opacity .45s ease; }
+.netviz.is-hub .netviz__mesh line { opacity: 0; }
+
+/* the spokes: one translation per node, through the standard */
+.netviz__spokes line {
+  stroke: var(--navy); stroke-width: 1.7; stroke-linecap: round;
+  stroke-dasharray: 5 9; opacity: 0; transition: opacity .45s ease .12s;
+}
+.netviz.is-hub .netviz__spokes line { opacity: 0.6; }
+@media (prefers-reduced-motion: no-preference) {
+  .netviz.is-hub .netviz__spokes line { animation: netviz-flow 1.4s linear infinite; }
+}
+@keyframes netviz-flow { to { stroke-dashoffset: -14; } }
+
+.netviz__hub { opacity: 0; transition: opacity .4s ease .1s; }
+.netviz.is-hub .netviz__hub { opacity: 1; }
+.netviz__hub-gem {
+  fill: var(--accent);
+  transform-box: fill-box; transform-origin: center;
+  transform: rotate(45deg) scale(0.55);
+  transition: transform .45s cubic-bezier(.2, .8, .3, 1.2);
+}
+.netviz.is-hub .netviz__hub-gem { transform: rotate(45deg) scale(1); }
+.netviz__hub-name {
+  font-family: var(--display); font-size: 15px; font-weight: 700;
+  letter-spacing: 0.06em; fill: var(--deep); text-anchor: middle;
+}
+.netviz__hub-sub {
+  font-family: var(--display); font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; fill: var(--quiet); text-anchor: middle;
+  /* paper halo so crossing spokes don't run through the label */
+  stroke: var(--paper); stroke-width: 4; paint-order: stroke;
+}
+
+.netviz__node rect { fill: var(--paper); stroke: var(--rule); }
+.netviz__node-key { stroke: #AFBCCA; stroke-width: 3; }
+.netviz__node--live .netviz__node-key { stroke: var(--accent); }
+
+.netviz__node-name { font-family: var(--display); font-size: 13px; font-weight: 700; fill: var(--ink); text-anchor: middle; }
+.netviz__node-sub { font-family: var(--text); font-size: 11px; fill: var(--muted); text-anchor: middle; }
+
+/* the open slot: labs still to join */
+.netviz__node--ghost rect { stroke-dasharray: 5 4; }
+.netviz__node--ghost .netviz__node-name { fill: var(--muted); }
+.netviz__node--ghost .netviz__node-sub { fill: var(--quiet); }
+.netviz__mesh line.netviz__link--ghost { stroke-dasharray: 3 5; opacity: 0.65; }
+.netviz.is-hub .netviz__mesh line.netviz__link--ghost { opacity: 0; }
+.netviz.is-hub .netviz__spokes line.netviz__link--ghost { opacity: 0.35; }
+
+.netviz__captions { border: 1px solid var(--rule); background: var(--tint); padding: 16px 22px; }
+.netviz__caption { display: none; align-items: baseline; gap: 16px; }
+.netviz:not(.is-hub) .netviz__caption--mesh { display: flex; }
+.netviz.is-hub .netviz__caption--hub { display: flex; }
+@media (prefers-reduced-motion: no-preference) {
+  .netviz:not(.is-hub) .netviz__caption--mesh,
+  .netviz.is-hub .netviz__caption--hub { animation: pipeviz-fade .32s ease both; }
+}
+.netviz__count {
+  font-family: var(--display); font-size: 30px; font-weight: 700;
+  letter-spacing: -0.02em; line-height: 1; flex: none;
+}
+.netviz__caption--mesh .netviz__count { color: var(--quiet); }
+.netviz__caption--hub .netviz__count { color: var(--accent-ink); }
+.netviz__captext { font-size: 15px; line-height: 1.6; color: var(--body); }
+.netviz__captext strong { color: var(--ink); }
+
+.netviz .netviz__legend { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--quiet); }
+
+@media (max-width: 599px) {
+  .netviz__stage { overflow-x: auto; }
+  .netviz__svg { min-width: 560px; }
+}
+
+/* ---------- team map (five sites, one distributed laboratory) ---------- */
+/* full-width map on top; institutions as a horizontal tab strip below,
+   detail panel underneath (same idiom as the pipeline viz) */
+.teammap { display: flex; flex-direction: column; gap: 18px; margin-top: 8px; }
+/* home page: the flow gap is enough; pull the map up toward its intro line */
+.flow .teammap { margin-top: -18px; }
+/* inside a tinted section the paper/tint tab roles swap so selection still reads */
+.section--tint .teammap__tab { background: var(--tint); }
+.section--tint .teammap__tab[aria-selected="true"],
+.section--tint .teammap__panel { background: var(--paper); }
+.teammap__side { display: contents; }
+.teammap__stage { border: 1px solid var(--rule); background: var(--paper); padding: 18px 26px; }
+.teammap__svg { display: block; width: 100%; height: auto; }
+
+.teammap__land { fill: #EDF1F5; stroke: #C9D3DD; stroke-width: 1; }
+.teammap__borders { fill: none; stroke: var(--paper); stroke-width: 1; }
+
+/* constellation arcs between sites (drawn by JS) */
+.teammap__link {
+  fill: none; stroke: var(--navy); stroke-width: 1.5; stroke-linecap: round;
+  stroke-dasharray: 3 8; opacity: 0.18; transition: opacity .25s ease;
+}
+.teammap__link.is-active { opacity: 0.7; }
+
+.teammap__site { cursor: pointer; }
+.teammap__hit { fill: none; pointer-events: all; }
+.teammap__dot {
+  fill: var(--navy); stroke: var(--paper); stroke-width: 2.5;
+  transition: fill .2s ease;
+}
+.teammap__site:hover .teammap__dot, .teammap__site.is-active .teammap__dot { fill: var(--accent); }
+.teammap__pulse {
+  fill: none; stroke: var(--accent); stroke-width: 2; opacity: 0;
+  transform-box: fill-box; transform-origin: center;
+}
+.teammap__sitename {
+  font-family: var(--display); font-size: 19px; font-weight: 600;
+  fill: var(--ink); paint-order: stroke; stroke: var(--paper); stroke-width: 4px; stroke-linejoin: round;
+}
+.teammap__siteloc {
+  font-family: var(--text); font-size: 14px; fill: var(--quiet);
+  paint-order: stroke; stroke: var(--paper); stroke-width: 4px; stroke-linejoin: round;
+}
+.teammap__site.is-active .teammap__sitename { fill: var(--accent-ink); }
+
+.teammap__list { display: flex; flex-wrap: wrap; }
+.teammap__tab {
+  flex: 1 1 200px; cursor: pointer; text-align: left;
+  margin: 0 -1px -1px 0; /* collapse shared 1px borders between neighbors */
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--rule); border-top: 3px solid var(--rule);
+  padding: 12px 16px; display: flex; align-items: center; gap: 14px;
+  font-family: var(--text);
+  transition: border-color .2s ease, background-color .2s ease;
+}
+.teammap__tab:hover { border-top-color: #AFBCCA; }
+.teammap__tab[aria-selected="true"] {
+  background: var(--tint); border-top-color: var(--accent);
+  position: relative; z-index: 1; /* keep the accent edge above collapsed neighbors */
+}
+.teammap__tab-logo {
+  width: 30px; height: 30px; object-fit: contain; flex: none;
+  filter: grayscale(1); opacity: .55;
+  transition: filter .2s ease, opacity .2s ease;
+}
+.teammap__tab:hover .teammap__tab-logo,
+.teammap__tab[aria-selected="true"] .teammap__tab-logo { filter: none; opacity: 1; }
+.teammap__tab-text { display: flex; flex-direction: column; gap: 1px; }
+.teammap__tab-name { font-family: var(--display); font-size: 15px; font-weight: 600; }
+.teammap__tab-loc { font-size: 13px; color: var(--quiet); }
+
+.teammap__panel {
+  border: 1px solid var(--rule); background: var(--tint);
+  padding: 20px 24px; flex-direction: column; gap: 8px; display: none;
+}
+.teammap__panel.is-active { display: flex; }
+.teammap .teammap__panel h3 { font-size: 17px; font-weight: 600; }
+.teammap .teammap__panel p { font-size: 15px; line-height: 1.65; color: var(--body); }
+
+@media (max-width: 900px) {
+  .teammap__stage { padding: 12px 10px; }
+}
+@media (max-width: 700px) {
+  /* labels would render at ~6px once the SVG shrinks — the list carries the names */
+  .teammap__sitename, .teammap__siteloc { display: none; }
+  .teammap__dot { r: 9; }
+  .teammap__pulse { r: 9; }
+  /* stacked tabs: the selected edge moves from top to left, like the pipeline viz */
+  .teammap__tab { border-top: 1px solid var(--rule); border-left: 3px solid var(--rule); }
+  .teammap__tab:hover { border-top-color: var(--rule); border-left-color: #AFBCCA; }
+  .teammap__tab[aria-selected="true"] { border-top-color: var(--rule); border-left-color: var(--accent); }
+}
 
 /* ---------- motion (all guarded by prefers-reduced-motion) ---------- */
 a, .btn, .site-nav a, .signup button { transition: color .15s ease, background-color .15s ease, border-color .15s ease; }
@@ -380,6 +731,17 @@ a, .btn, .site-nav a, .signup button { transition: color .15s ease, background-c
     transition-delay: var(--reveal-delay, 0s);
   }
   .reveal.is-visible { opacity: 1; transform: none; }
+
+  /* team map: sonar pulse on the active site, slow dash drift on its arcs */
+  .teammap__site.is-active .teammap__pulse { animation: teammap-pulse 2.4s ease-out infinite; }
+  @keyframes teammap-pulse {
+    0% { transform: scale(1); opacity: 0.55; }
+    75% { transform: scale(3.4); opacity: 0; }
+    100% { transform: scale(3.4); opacity: 0; }
+  }
+  .teammap__link.is-active { animation: teammap-dash 1.4s linear infinite; }
+  /* dasharray is 3 8, so an 11-unit offset loops seamlessly */
+  @keyframes teammap-dash { to { stroke-dashoffset: -11; } }
 }
 
 /* ---------- mobile disclosure nav ---------- */

@@ -9,37 +9,54 @@ description: >-
 permalink: /team/
 wide: true
 ---
-<div class="cells cells--2">
-  {% for m in site.data.team.leads %}
-  <div class="cell person">
-    <span class="label label--accent">{{ m.role }}</span>
-    <h3>{{ m.name }}</h3>
-    <span class="person__org">{{ m.org }}</span>
-    <p>{{ m.bio }}</p>
+{% comment %} Institution contributions are already shown on the landing page.
+<div class="stack">
+  <h2>What each institution contributes</h2>
+  <div class="cells cells--5">
+    {% for p in site.data.partners %}
+    <div class="cell partner">
+      {% if p.logo %}<span class="partner__logo"><img src="{{ p.logo | relative_url }}" alt="" loading="lazy"{% if p.logo_h %} style="height: {{ p.logo_h }}px"{% endif %}>{% if p.logo_text %}<span class="partner__wordmark" aria-hidden="true">{{ p.name }}</span>{% endif %}</span>{% endif %}
+      <h3{% if p.logo %} class="sr-only"{% endif %}>{{ p.name }}</h3>
+      <span class="cell__meta">{{ p.location }}</span>
+      <p>{{ p.role }}</p>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
+</div>
+{% endcomment %}
+
+<div class="stack">
+  <h2>Principal investigators</h2>
+  <div class="cells cells--1">
+    {% assign pis = site.data.team.people | where: "group", "pis" %}
+    {% for m in pis %}
+    <div class="cell person{% unless m.bio %} person--brief{% endunless %}">
+      {% include person-photo.html member=m %}
+      <div class="person__meta">
+        <span class="label label--accent">{{ m.role }}</span>
+        <h3>{{ m.name }}</h3>
+        <span class="person__org">{{ m.org }}</span>
+      </div>
+      {% if m.bio %}<p class="person__bio">{{ m.bio }}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
 </div>
 
 <div class="stack">
   <h2>Project leadership</h2>
-  <div class="cells cells--2">
-    {% for m in site.data.team.staff %}
-    <div class="cell person person--compact">
-      <h3>{{ m.name }}</h3>
-      <span class="person__org">{{ m.role }} &middot; {{ m.org }}</span>
-    </div>
-    {% endfor %}
-  </div>
-</div>
-
-<div class="stack">
-  <h2>What each institution contributes</h2>
   <div class="cells cells--1">
-    {% for p in site.data.partners %}
-    <div class="cell inst">
-      <h3>{{ p.name }}</h3>
-      <p>{{ p.contribution }}</p>
+    {% assign leads = site.data.team.people | where: "group", "leadership" %}
+    {% for m in leads %}
+    <div class="cell person person--brief">
+      {% include person-photo.html member=m %}
+      <div class="person__meta">
+        <span class="label label--accent">{{ m.role }}</span>
+        <h3>{{ m.name }}</h3>
+        <span class="person__org">{{ m.org }}</span>
+      </div>
     </div>
     {% endfor %}
   </div>
+  <p class="team-note">GEMSTONE's full team extends well beyond this list, spanning the five partner organizations.</p>
 </div>

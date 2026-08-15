@@ -1,0 +1,14 @@
+{% comment %}
+  Renders a team member's portrait if assets/img/team/<photo> exists,
+  otherwise an initials placeholder. Usage:
+    {% include person-photo.html member=m %}
+{% endcomment %}
+{% assign photo_path = '/assets/img/team/' | append: include.member.photo %}
+{% assign photo_file = site.static_files | where: 'path', photo_path | first %}
+{% if include.member.photo and photo_file %}
+<img class="person__photo" src="{{ photo_path | relative_url }}" alt="{{ include.member.name }}" width="400" height="400" loading="lazy">
+{% else %}
+{% assign name_parts = include.member.name | split: ' ' %}
+{% assign last_part = name_parts | last %}
+<span class="person__photo person__photo--placeholder" aria-hidden="true">{{ name_parts[0] | slice: 0 }}{{ last_part | slice: 0 }}</span>
+{% endif %}
