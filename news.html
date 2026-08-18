@@ -9,10 +9,12 @@ permalink: /news/
 ---
 <div class="news-list">
   {% for post in site.posts %}
+  {% comment %} Headlines link straight to the source article when one exists
+     (external_url in the post's front matter) — no intermediate post page. {% endcomment %}
   <article class="news-item">
     <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %Y" }}</time>
     <div>
-      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <h2><a {% if post.external_url %}href="{{ post.external_url }}"{% else %}href="{{ post.url | relative_url }}"{% endif %}>{{ post.title }}</a></h2>
       <p>{{ post.excerpt | strip_html | normalize_whitespace | truncate: 220 }}</p>
     </div>
   </article>
@@ -21,7 +23,7 @@ permalink: /news/
 
 <div class="signup">
   <h3>Get project updates</h3>
-  <p>Announcements of workshops, training sessions, and OPAL releases go out a few times a year.</p>
+  <p>Announcements of workshops, training sessions, and OPAL releases are distributed a few times a year.</p>
   {% comment %} TODO before launch: swap the mailto for a real list
      (Mailchimp / Buttondown / Google Form) once one exists. {% endcomment %}
   <div class="signup__row">

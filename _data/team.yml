@@ -9,10 +9,10 @@ people:
     org: Stanford University
     group: pis
     bio: >-
-      Stanford Medicine Professor of Biomedical Informatics Research, and professor
-      of Medicine and of Biomedical Data Science. Leads Stanford's Division of
-      Computational Medicine, with research in open science, data stewardship, and
-      intelligent systems. Member of the National Academy of Medicine.
+      Professor of Medicine and of Biomedical Data Science. Long history of
+      research in open science, data stewardship, and intelligent systems. Among
+      many honors, a Lifetime Achievement Award from the Knowledge Graph
+      Conference and a member of the National Academy of Medicine.
   - name: D.J. Kleinbaum, PhD
     photo: dj-kleinbaum.jpg
     role: Co-PI &amp; Science Lead
@@ -55,7 +55,7 @@ people:
     role: Data &amp; Standards Lead
     org: Stanford University
     group: leadership
-  - name: Chester Shiu
+  - name: Chester Shiu, JD, MS
     photo: chester-shiu.jpg
     role: Research Security &amp; Biosafety Officer
     org: Emerald Cloud Lab

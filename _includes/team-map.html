@@ -14,6 +14,21 @@
       </g>
       {% endfor %}
     </svg>
+
+    {% comment %} Detail cards float over the map next to the selected dot, so the
+       text stays in view instead of falling below the fold. JS anchors the card;
+       without JS (and on small screens) the cards sit statically below the map. {% endcomment %}
+    <div class="teammap__panels" data-teammap-panels>
+      {% for p in site.data.partners %}
+      <div class="teammap__panel {% if forloop.first %}is-active{% endif %}" role="tabpanel"
+           id="teammap-panel-{{ forloop.index }}" aria-labelledby="teammap-tab-{{ forloop.index }}"
+           tabindex="0" {% unless forloop.first %}hidden{% endunless %}>
+        <h3>{{ p.name }}</h3>
+        <span class="label label--accent">{{ p.role }}</span>
+        <p>{{ p.contribution }}</p>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 
   <div class="teammap__side">
@@ -31,21 +46,9 @@
       </button>
       {% endfor %}
     </div>
-
-    <div class="teammap__panels">
-      {% for p in site.data.partners %}
-      <div class="teammap__panel {% if forloop.first %}is-active{% endif %}" role="tabpanel"
-           id="teammap-panel-{{ forloop.index }}" aria-labelledby="teammap-tab-{{ forloop.index }}"
-           tabindex="0" {% unless forloop.first %}hidden{% endunless %}>
-        <h3>{{ p.name }}</h3>
-        <span class="label label--accent">{{ p.role }}</span>
-        <p>{{ p.contribution }}</p>
-      </div>
-      {% endfor %}
-    </div>
   </div>
 
-  <noscript><style>.teammap__panel[hidden]{display:flex!important}</style></noscript>
+  <noscript><style>.teammap__panel[hidden]{display:flex!important}.teammap__panels{position:static;transform:none;width:auto;pointer-events:auto}</style></noscript>
 </div>
 
 <script>
@@ -81,6 +84,19 @@
       }
     }
 
+    // anchor the floating detail card beside the active dot, flipping it away
+    // from whichever map edge is nearest so it always stays fully in view
+    var panelBox = root.querySelector('[data-teammap-panels]');
+    var vb = root.querySelector('.teammap__svg').viewBox.baseVal;
+    function place(i) {
+      var lx = (pts[i][0] - vb.x) / vb.width * 100;
+      var ty = (pts[i][1] - vb.y) / vb.height * 100;
+      panelBox.style.left = lx.toFixed(2) + '%';
+      panelBox.style.top = ty.toFixed(2) + '%';
+      panelBox.classList.toggle('is-flip-x', lx > 55);
+      panelBox.classList.toggle('is-flip-y', ty > 55);
+    }
+
     function select(i, focus) {
       current = i;
       tabs.forEach(function (tab, j) {
@@ -94,6 +110,7 @@
       links.forEach(function (l) {
         l.classList.toggle('is-active', +l.dataset.a === i || +l.dataset.b === i);
       });
+      place(i);
       if (focus) tabs[i].focus();
     }
 

@@ -1,24 +1,24 @@
 ---
 layout: page
 title: Vision
-summary: What a self-driving laboratory is, and what stands in the way of one.
+summary: What is a programmable cloud laboratory, and what stands in the way of making such facilities ubiquitous?
 description: >-
   How GEMSTONE turns written experimental protocols into machine-actionable
   workflows: the open OPAL standard, the ORE disambiguation agent, and the TROVE
   translator into node execution languages.
 permalink: /vision/
 ---
-<p class="lede">A self-driving laboratory takes an experimental goal, plans the work, runs it on real instruments, reads the results, and decides what to do next &mdash; without a person at the bench. The instruments for this already exist &mdash; the node alone has more than 740, spanning analytical and synthetic chemistry, biology, and materials science. The specification layer does not.</p>
+<p class="lede">A programmable cloud laboratory starts with an experimental goal, plans the work, runs the experiment on real instruments, reads the results, and decides what to do next &mdash; without a scientist at the bench. The computer-enabled instruments for creating programmable cloud laboratories already exist &mdash; our node alone has more than 740 of them, spanning analytical and synthetic chemistry, to biomedicine and &rsquo;omics, to materials science. But the general-purpose specification layer for enabling these instruments in a standardized, platform-independent manner still needs to be built.</p>
 
 <div class="stack">
   <h2>The bottleneck is method transfer</h2>
-  <p>Laboratory methods are written for human interpretation: critical details are left ambiguous, results are difficult to reproduce, and procedures are hard to scale across institutions. Through fifteen years of operation, Emerald Cloud Lab has found that the hardest part of running an automated experiment is writing the specification for it. A formal, complete protocol is exceedingly difficult to write, even with experience and training. The usual failure is under-specification: researchers are not accustomed to thinking through the low-level details that are normally left unsaid.</p>
-  <p>Laboratory automation today is built on rigid abstractions tied to particular instrument models and software packages. Emerald&rsquo;s Symbolic Lab Language is detailed, specific to its facility, and not easily adapted elsewhere. Translating written methods into it requires trained specialists. What is missing is an intermediary layer between natural language and platform-specific languages.</p>
+  <p>Laboratory methods are written for human interpretation: critical details are often left out, results are difficult to reproduce, and procedures are hard to scale across institutions. Through fifteen years of operation, Emerald Cloud Lab has found that the hardest part of running an automated experiment is writing the specification in the first place. A formal, complete protocol is exceedingly difficult to write, even with experience and training. The usual failure is under-specification: researchers are not accustomed to thinking through the low-level details that are normally left unsaid &mdash; but that are essential for the operation of automated systems.</p>
+  <p>Laboratory automation today is built on rigid specification languages that are tied to particular instrument models and software packages. The language used at Emerald Cloud Lab, Symbolic Lab Language (SLL), is detailed, specific to its facility, and not easily adapted elsewhere. Translating written methods into SLL requires trained specialists. What is missing is an intermediary layer between the way investigators think about their experiments and laboratory-specific languages such as SLL.</p>
 </div>
 
 <div class="stack">
   <h2>From a written page to a running experiment</h2>
-  <p>The pipeline in five stages. Select a stage to see what happens there.</p>
+  <p>Our pipeline has five stages. Select a stage to see what happens there.</p>
   {% include pipeline-viz.html %}
 </div>
 
@@ -29,7 +29,7 @@ permalink: /vision/
       <span class="objective__tag">OPAL</span>
       <div>
         <h3>A representation for experiments</h3>
-        <p>The Open Platform for Automated Laboratories is a typed, machine-actionable schema that captures operations, resources, parameters, and provenance in an implementation-agnostic form. Knowledge representation is implemented through Stanford&rsquo;s CEDAR Workbench, with each workflow modeled as a directed graph of control-flow and data-flow dependencies.</p>
+        <p>The Open Platform for Automated Laboratories is a typed, machine-actionable schema language that captures laboratory operations, resources, parameters, and provenance in an implementation-agnostic form. Knowledge representation is implemented using semantic technology, with each workflow modeled as a directed graph of control-flow and data-flow dependencies.</p>
       </div>
     </div>
     <div class="cell objective">
@@ -43,30 +43,30 @@ permalink: /vision/
       <span class="objective__tag">TROVE</span>
       <div>
         <h3>A translator into node languages</h3>
-        <p>TROVE &mdash; a training method that induces a verifiable and efficient toolbox of functions &mdash; converts OPAL representations into a node&rsquo;s execution language, beginning with SLL at Emerald and extending to any node-dependent language as the Test Bed network grows.</p>
+        <p>TROVE converts laboratory-independent OPAL representations into a PCL node&rsquo;s particular execution language. Our work will begin with the SLL language used at Emerald Cloud Lab, and it will have the potential to extend to any node-dependent language as the NSF PCL Test Bed network grows.</p>
       </div>
     </div>
   </div>
-  <p>Across all three, benchmarking, provenance tracking, and reliability assessment are built in from the start, so that autonomous experimentation stays safe, auditable, and reproducible.</p>
+  <p>Across all three components, benchmarking, provenance tracking, and reliability assessment are built in from the start, so that autonomous experimentation stays safe, auditable, and reproducible.</p>
 </div>
 
 <div class="stack">
   <h2>The science driver</h2>
-  <p>The project begins with U.S. Pharmacopeia monographs, which describe analytical laboratory procedures in prose. Different laboratories &mdash; and different technicians within one laboratory &mdash; execute them differently, and small differences in purity, solvent, or temperature change the result. It is a well-constrained problem that prioritizes reproducibility and precision, which makes it a good first test &mdash; and one with direct consequences beyond the lab, demonstrating scalable pharmaceutical quality testing in support of resilient domestic manufacturing. Later years extend to broader biotechnology characterization drivers.</p>
+  <p>Since the 19th century, the U.S. Pharmacopeia (USP) has been publishing textual monographs that describe analytical laboratory procedures for assessing the purity and quality of drugs and other compounds. Although the procedures described in these monographs are intended to serve as standard protocols, different laboratories &mdash; and different technicians within one laboratory &mdash; may execute them differently, and small differences in composition, solvent, or temperature may alter the result. The interpretation of USP monographs and the execution of the associated laboratory procedures are well-constrained problems that emphasize reproducibility and precision. The conversion of USP monographs into actionable specifications for a programmable cloud lab is a great first test of our approach &mdash; and one with direct consequences beyond the lab, demonstrating scalable pharmaceutical quality testing in support of resilient and secure domestic manufacturing. In the later years of our project, we will extend our work to address broader science drivers.</p>
 </div>
 
 <div class="stack">
   <h2>A network, not a node</h2>
-  <p>OPAL is designed to be independent of any single facility: TROVE translates it into each node&rsquo;s internal language, beginning with Emerald&rsquo;s SLL. GEMSTONE serves as the interoperability hub for the national programmable cloud laboratory network &mdash; consulting with the other funded nodes on APIs and data standards, and spearheading the language-design effort that lets nodes share, validate, and execute experiments through common, machine-actionable standards.</p>
+  <p>OPAL is designed to be independent of any single facility: TROVE translates OPAL specifications into each node&rsquo;s internal language, beginning with Emerald Cloud Lab&rsquo;s SLL. GEMSTONE hopes to serve as the interoperability hub for the NSF programmable cloud laboratory network. Working with the other PCL nodes on APIs and data standards, our team hopes to spearhead the language-design effort that will allow nodes to share, validate, and execute experiments through common, machine-actionable specifications.</p>
   {% include network-viz.html %}
 </div>
 
 <div class="pull">
-  <p>OPAL is meant to do for laboratory automation what STEP did for manufacturing: create a shared interchange layer before each node becomes too siloed to interact with the others.</p>
+  <p>OPAL is meant to do for laboratory automation what the STEP language did for computer-aided design and manufacturing in the last century: by creating a shared interchange layer, OPAL will enable the PCL community to avoid becoming siloed, enabling the widespread sharing of specification languages, of protocol-authoring tools, and of whole laboratory facilities.</p>
 </div>
 
 <div class="stack">
   <h2>Why it matters</h2>
-  <p>Removing the specification bottleneck means faster discovery, more reproducible results, and broader access to advanced experimental capability &mdash; for universities, startups, nonprofits, government laboratories, and small businesses that have never had a route into automated experimentation.</p>
-  <p>Along the way, the project trains a workforce fluent in AI, biotechnology, and advanced manufacturing &mdash; an investment in U.S. competitiveness, pharmaceutical supply-chain resilience, economic growth, and national security.</p>
+  <p>The development of shared standards and AI-based translation approaches will lead to faster discovery, more reproducible results, and broader access to advanced experimental capability &mdash; for universities, startups, nonprofits, government laboratories, and small businesses that have never before had a route into automated experimentation.</p>
+  <p>Along the way, the project will train a workforce fluent in AI, biotechnology, and advanced manufacturing &mdash; an investment in U.S. competitiveness, pharmaceutical supply-chain resilience, economic growth, and national security.</p>
 </div>

@@ -24,10 +24,10 @@
   short: Emerald Cloud Lab
   map_x: 463.9
   map_y: 497.4
-  role: The node itself, and its instruments
+  role: The automated laboratory
   contribution: >-
-    Provides the node: instruments, automation, and the Symbolic Lab Language,
-    contributed to the Test Bed under an open-source license.
+    Provides the automated laboratory: instruments, automation, and the Symbolic
+    Lab Language, contributed to the Test Bed under an open-source license.
 - name: Purdue University
   logo: /assets/img/partners/purdue.svg
   logo_h: 25

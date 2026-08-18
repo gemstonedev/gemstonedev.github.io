@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Stanford Medicine: $20 million awarded for AI-guided research facilities"
+external_url: https://med.stanford.edu/news/all-news/2026/08/ai-laboratories-award.html
 description: >-
   Stanford Medicine covers the NSF award funding GEMSTONE, part of a $400
   million national initiative to establish twenty programmable cloud

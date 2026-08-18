@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "NSF announces $400 million investment in a national network of programmable cloud laboratories"
+external_url: https://www.nsf.gov/tip/updates/nsf-announces-400m-investment-new-national-network-ai
 description: >-
   The National Science Foundation announces the NSF PCL Test Bed: twenty teams
   building a nationwide network of AI-enabled automated laboratories, in

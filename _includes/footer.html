@@ -27,7 +27,10 @@
         <img src="{{ '/assets/img/nsf-logo.svg' | relative_url }}" alt="U.S. National Science Foundation logo" width="52" height="52">
         <span>Supported by the U.S. National Science Foundation under Award No.&nbsp;{{ site.nsf_award | default: '2607573' }}.</span>
       </p>
-      <p>Stanford &middot; Emerald Cloud Lab &middot; Purdue &middot; Morehouse &middot; U.S.&nbsp;Pharmacopeia</p>
+      <div class="site-footer__meta">
+        <p>Stanford &middot; Emerald Cloud Lab &middot; Purdue &middot; Morehouse &middot; U.S.&nbsp;Pharmacopeia</p>
+        <p>&copy; {{ 'now' | date: '%Y' }} The GEMSTONE Project. All rights reserved.</p>
+      </div>
     </div>
   </div>
 </footer>

@@ -7,19 +7,89 @@ description: >-
   workflows.
 ---
 <section class="hero on-dark">
+  <!-- the automated lab itself, behind the network graphic: darkened and faded
+       to solid navy on the left so the headline stays legible -->
+  <div class="hero__bg" aria-hidden="true">
+    <img src="{{ '/assets/img/hero-lab.jpg' | relative_url }}" alt="" loading="eager" decoding="async">
+  </div>
   <div class="wrap">
     <div class="hero__main">
-      <span class="kicker">NSF Programmable Cloud Laboratory Test Bed</span>
-      <h1>Building America&rsquo;s AI infrastructure for self-driving laboratories</h1>
-      <p class="hero__lede">Scientists should be able to describe an experiment the way they naturally would &mdash; in prose &mdash; and have it run reliably in any automated laboratory. GEMSTONE builds the open standards and AI agents that make this possible &mdash; starting at Emerald Cloud Lab and setting the pattern for a national network of programmable cloud laboratories.</p>
+      <span class="kicker kicker--plain">Generalizable Experimental Methods and Standards for Transparent, Open, Networked Execution</span>
+      <h1>Building America&rsquo;s AI infrastructure for programmable cloud laboratories</h1>
+      <p class="hero__network">GEMSTONE is a node in the <a href="https://www.nsf.gov/tip/updates/nsf-announces-400m-investment-new-national-network-ai">NSF PCL testbed network</a> of programmable cloud laboratories.</p>
+      <p class="hero__lede">Scientists should be able to describe an experiment in a manner that is natural to them &mdash; in prose &mdash; and to have their experiment run reliably and reproducibly in any automated laboratory. GEMSTONE is building the open standards and AI agents that make this approach possible &mdash; starting at <a href="https://www.emeraldcloudlab.com/">Emerald Cloud Lab</a> and setting the pattern for a national network of programmable cloud laboratories.</p>
       <div class="btn-row">
-        <a class="btn btn--primary" href="{{ '/vision/' | relative_url }}">Read the approach</a>
+        <a class="btn btn--primary" href="{{ '/vision/' | relative_url }}">Read about the approach</a>
         <a class="btn btn--ghost" href="{{ '/contact/' | relative_url }}">Get in touch</a>
       </div>
     </div>
-    <div class="hero__aside">
-      <span class="label">The acronym</span>
-      <p class="hero__acronym"><strong>G</strong>eneralizable <strong>E</strong>xperimental <strong>M</strong>ethods and <strong>S</strong>tandards for <strong>T</strong>ransparent, <strong>O</strong>pen, <strong>N</strong>etworked <strong>E</strong>xecution</p>
+    <div class="hero__gem" aria-hidden="true">
+      <!-- The mark, extended into what it stands for: the GEMSTONE node at the
+           center of a network of programmable cloud labs. Each connected node is
+           a small lab — a diamond tile (the logo's grid language) holding an
+           instrument glyph — and unlinked far nodes hint at the network to come.
+           The logo keeps its 45° rotation; labs are drawn unrotated so the
+           glyphs stay upright. -->
+      <svg viewBox="-174 -184 358 382" fill="none" focusable="false">
+        <defs>
+          <path id="lab-tile" class="g-tile" d="M0 -26 L26 0 L0 26 L-26 0 Z"></path>
+          <path id="lab-dot" class="g-far" d="M0 -7 L7 0 L0 7 L-7 0 Z"></path>
+          <g id="lab-flask" class="g-glyph">
+            <path d="M-3.5 -11 V-3 L-9.5 8.5 Q-11 11 -7.5 11 H7.5 Q11 11 9.5 8.5 L3.5 -3 V-11 M-6 -11 H6 M-5.5 4.5 H5.5"></path>
+          </g>
+          <g id="lab-chrom" class="g-glyph">
+            <path d="M-10.5 7 H-8 C-6.8 7 -6.6 1.5 -5.2 1.5 C-3.8 1.5 -3.6 7 -2.4 7 H-0.8 C0.4 7 0.9 -8.5 2.6 -8.5 C4.3 -8.5 4.8 7 6 7 H10.5"></path>
+          </g>
+          <g id="lab-plate" class="g-glyph">
+            <rect x="-10" y="-7" width="20" height="14" rx="2"></rect>
+            <circle class="g-dot" cx="-5" cy="-2.5" r="1.7"></circle><circle class="g-dot" cx="0" cy="-2.5" r="1.7"></circle><circle class="g-dot" cx="5" cy="-2.5" r="1.7"></circle>
+            <circle class="g-dot" cx="-5" cy="2.5" r="1.7"></circle><circle class="g-dot" cx="0" cy="2.5" r="1.7"></circle><circle class="g-dot" cx="5" cy="2.5" r="1.7"></circle>
+          </g>
+          <g id="lab-mol" class="g-glyph">
+            <path d="M-5 6.2 L-1.2 -4.3 M1.8 -4.6 L5.4 1.4 M-3.2 7.9 L4.2 5.1"></path>
+            <circle cx="-6" cy="9" r="3"></circle><circle cx="0" cy="-7.5" r="3.4"></circle><circle cx="7" cy="4" r="3"></circle>
+          </g>
+        </defs>
+        <!-- the node's boundary: a quiet dashed ring the links emanate from -->
+        <path class="g-ring" d="M0 -66 L66 0 L0 66 L-66 0 Z"></path>
+        <!-- dotted links from the GEMSTONE node to each lab -->
+        <line class="g-link" x1="74" y1="0" x2="108" y2="0"></line>
+        <line class="g-link" x1="0" y1="-74" x2="0" y2="-108"></line>
+        <line class="g-link" x1="-74" y1="0" x2="-108" y2="0"></line>
+        <line class="g-link" x1="0" y1="74" x2="0" y2="133"></line>
+        <line class="g-link" x1="40" y1="-40" x2="72" y2="-72"></line>
+        <line class="g-link" x1="40" y1="40" x2="92" y2="92"></line>
+        <line class="g-link" x1="-40" y1="40" x2="-72" y2="72"></line>
+        <line class="g-link" x1="-40" y1="-40" x2="-72" y2="-72"></line>
+        <!-- pulses travelling outward along the links (hidden when motion is reduced) -->
+        <line class="g-flow" x1="74" y1="0" x2="108" y2="0"></line>
+        <line class="g-flow" style="animation-delay:-1.4s" x1="0" y1="-74" x2="0" y2="-108"></line>
+        <line class="g-flow" style="animation-delay:-2.7s" x1="0" y1="74" x2="0" y2="133"></line>
+        <line class="g-flow" style="animation-delay:-3.9s" x1="-74" y1="0" x2="-108" y2="0"></line>
+        <line class="g-flow" style="animation-delay:-2s" x1="40" y1="-40" x2="72" y2="-72"></line>
+        <line class="g-flow" style="animation-delay:-4.6s" x1="40" y1="40" x2="92" y2="92"></line>
+        <!-- far nodes: not yet linked in, receding in scale -->
+        <use href="#lab-dot" transform="translate(170 45)"></use>
+        <use href="#lab-dot" transform="translate(-65 -150) scale(.8)"></use>
+        <use href="#lab-dot" transform="translate(-88 170) scale(.9)"></use>
+        <use href="#lab-dot" transform="translate(85 -170) scale(.75)"></use>
+        <use href="#lab-dot" transform="translate(172 118) scale(.85)"></use>
+        <!-- the labs of the network -->
+        <g transform="translate(140 0)"><use href="#lab-tile"></use><use href="#lab-flask"></use></g>
+        <g transform="translate(0 -140)"><use href="#lab-tile"></use><use href="#lab-chrom"></use></g>
+        <g transform="translate(-140 0)"><use href="#lab-tile"></use><use href="#lab-plate"></use></g>
+        <g transform="translate(0 165)"><use href="#lab-tile"></use><use href="#lab-flask"></use></g>
+        <g transform="translate(95 -95)"><use href="#lab-tile"></use><use href="#lab-mol"></use></g>
+        <g transform="translate(115 115)"><use href="#lab-tile"></use><use href="#lab-chrom"></use></g>
+        <g transform="translate(-95 95)"><use href="#lab-tile"></use><use href="#lab-plate"></use></g>
+        <g transform="translate(-95 -95)"><use href="#lab-tile"></use><use href="#lab-mol"></use></g>
+        <!-- the GEMSTONE node: the logo itself -->
+        <g transform="rotate(45)">
+          <rect x="-42" y="-42" width="24" height="24" class="g-corner"></rect><rect x="-12" y="-42" width="24" height="24" class="g-edge"></rect><rect x="18" y="-42" width="24" height="24" class="g-corner"></rect>
+          <rect x="-42" y="-12" width="24" height="24" class="g-edge"></rect><rect x="-12" y="-12" width="24" height="24" class="g-core"></rect><rect x="18" y="-12" width="24" height="24" class="g-edge"></rect>
+          <rect x="-42" y="18" width="24" height="24" class="g-corner"></rect><rect x="-12" y="18" width="24" height="24" class="g-edge"></rect><rect x="18" y="18" width="24" height="24" class="g-corner"></rect>
+        </g>
+      </svg>
     </div>
   </div>
 </section>
@@ -37,7 +107,7 @@ description: >-
   <div class="split">
     <div class="rail rail--sticky"><h2>From prose to execution</h2></div>
     <div class="flow flow--tight">
-      <p>A major bottleneck in automated experimentation is method transfer: writing a specification detailed enough to reliably guide a self-driving laboratory. Researchers are not used to writing out the low-level, common-sense details that a machine requires. GEMSTONE places an abstract, node-independent layer between natural language and the platform-specific languages that drive instruments.</p>
+      <p>A major bottleneck in automated experimentation is method transfer: writing a specification that is sufficiently detailed to guide a programmable cloud laboratory reliably. Researchers are not trained to write out the myriad, low-level, common-sense details that machines require for workflow execution. GEMSTONE places an abstract, node-independent layer between natural language descriptions of experiments and the platform-specific languages that drive instruments and that enable efficient, fully automated workflows.</p>
       <div class="pipeline">
         <div class="cells cells--3">
           <div class="cell">
@@ -48,7 +118,7 @@ description: >-
           <div class="cell">
             <span class="label label--accent">ORE</span>
             <h3>Disambiguation</h3>
-            <p>An AI agent flags vague instructions &mdash; &ldquo;mix thoroughly,&rdquo; &ldquo;adjust pH as needed&rdquo; &mdash; and resolves them by asking the user or running small experiments.</p>
+            <p>An AI agent flags vague instructions &mdash; &ldquo;mix thoroughly,&rdquo; &ldquo;adjust pH as needed&rdquo; &mdash; and resolves them by asking the user or by running small experiments.</p>
           </div>
           <div class="cell">
             <span class="label label--accent">OPAL</span>
@@ -58,7 +128,7 @@ description: >-
           <div class="cell">
             <span class="label label--accent">TROVE</span>
             <h3>Translation</h3>
-            <p>A second agent converts OPAL into a node&rsquo;s own language, beginning with Emerald&rsquo;s Symbolic Lab Language.</p>
+            <p>A second agent converts OPAL into a node&rsquo;s own language, beginning with Emerald Cloud Lab&rsquo;s Symbolic Lab Language.</p>
           </div>
           <div class="cell">
             <span class="label">Execution</span>
@@ -69,6 +139,11 @@ description: >-
             <span class="label">Closed loop</span>
             <h3>Results feed back</h3>
             <p>Outcomes return to TROVE, which adjusts parameters, updates constraints, and proposes improved variants.</p>
+          </div>
+          <div class="cell cell--wide">
+            <span class="label">FAIR data</span>
+            <h3>Data archiving</h3>
+            <p>All data generated through our approach are described using standards-adherent metadata and submitted to appropriate repositories, ensuring that datasets are findable, accessible, interoperable, and reusable.</p>
           </div>
         </div>
       </div>
@@ -81,7 +156,7 @@ description: >-
     <div class="split">
       <div class="rail rail--sticky"><h2>Partners</h2></div>
       <div class="flow flow--tight">
-        <p>One distributed laboratory spanning five organizations. Select a site to see what each contributes.</p>
+        <p>One distributed laboratory spanning five organizations. Select a site to see what it contributes.</p>
         {% include team-map.html %}
       </div>
     </div>
@@ -92,7 +167,7 @@ description: >-
   <div class="split">
     <div class="rail rail--sticky"><h2>Open by design</h2></div>
     <div class="flow flow--tight">
-      <p>GEMSTONE is laying the shared, interoperable foundations for a national network of self-driving labs &mdash; open infrastructure that any researcher, institution, or lab can build on.</p>
+      <p>GEMSTONE is laying the shared, interoperable foundations for a national network of programmable cloud labs &mdash; open infrastructure that any researcher, institution, or lab can build on.</p>
       <div class="cells cells--2">
         <div class="cell">
           <span class="cell__icon">{% include icon-network.svg %}</span>
@@ -102,7 +177,7 @@ description: >-
         <div class="cell">
           <span class="cell__icon">{% include icon-branch.svg %}</span>
           <h3>Open-source execution</h3>
-          <p>Emerald&rsquo;s Symbolic Lab Language is contributed to the Test Bed under an open-source license.</p>
+          <p>Emerald Cloud Lab&rsquo;s Symbolic Lab Language is contributed to the Test Bed under an open-source license.</p>
         </div>
         <div class="cell">
           <span class="cell__icon">{% include icon-package.svg %}</span>
@@ -128,7 +203,9 @@ description: >-
     </div>
     <div class="news-list">
       {% for post in site.posts limit: 3 %}
-      <a class="news-item" href="{{ post.url | relative_url }}">
+      {% comment %} News items link straight to the source article when one exists
+         (external_url in the post's front matter) — no intermediate post page. {% endcomment %}
+      <a class="news-item" {% if post.external_url %}href="{{ post.external_url }}"{% else %}href="{{ post.url | relative_url }}"{% endif %}>
         <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %Y" }}</time>
         <div>
           <h3>{{ post.title }}</h3>
