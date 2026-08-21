@@ -231,6 +231,14 @@ img, svg { max-width: 100%; }
 .note { border: 1px solid var(--rule); background: var(--tint); padding: 26px 30px; }
 .note p { font-size: 17px; line-height: 1.65; color: var(--body); }
 
+/* ---------- office address + map ---------- */
+.office { display: grid; gap: 16px; align-items: stretch; }
+@media (min-width: 820px) { .office { grid-template-columns: minmax(276px, 2fr) 3fr; } }
+.office .note { display: flex; flex-direction: column; justify-content: space-between; gap: 16px; }
+.office__maplink { font-size: 15px; }
+.office__map { border: 1px solid var(--rule); background: var(--tint); }
+.office__map iframe { display: block; width: 100%; height: 100%; min-height: 300px; border: 0; }
+
 /* ---------- grids of cells ---------- */
 .cells { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
 .cells--1 { grid-template-columns: minmax(0, 1fr); }
