@@ -4,7 +4,7 @@ title: Vision
 summary: What is a programmable cloud laboratory, and what stands in the way of making such facilities ubiquitous?
 description: >-
   How GEMSTONE turns written experimental protocols into machine-actionable
-  workflows: the open OPAL standard, the ORE disambiguation agent, and the TROVE
+  workflows: the open AMBER standard, the ORE disambiguation agent, and the TROVE
   translator into node execution languages.
 permalink: /vision/
 ---
@@ -26,24 +26,24 @@ permalink: /vision/
   <h2>Three technical objectives</h2>
   <div class="cells cells--1">
     <div class="cell objective">
-      <span class="objective__tag">OPAL</span>
+      <span class="objective__tag">AMBER</span>
       <div>
         <h3>A representation for experiments</h3>
-        <p>The Open Platform for Automated Laboratories is a typed, machine-actionable schema language that captures laboratory operations, resources, parameters, and provenance in an implementation-agnostic form. Knowledge representation is implemented using semantic technology, with each workflow modeled as a directed graph of control-flow and data-flow dependencies.</p>
+        <p>The Abstract Model for Bridging Experiment Representations is a typed, machine-actionable schema language that captures laboratory operations, resources, parameters, and provenance in an implementation-agnostic form. Knowledge representation is implemented using semantic technology, with each workflow modeled as a directed graph of control-flow and data-flow dependencies.</p>
       </div>
     </div>
     <div class="cell objective">
       <span class="objective__tag">ORE</span>
       <div>
         <h3>An agent that resolves ambiguity</h3>
-        <p>The OPAL Rendering Engine inspects written methods and resolves what they leave unsaid, through user dialogue where a user is available and through small, AI-designed experiments where one is not. Where a protocol says &ldquo;allow to equilibrate,&rdquo; the agent can systematically vary the underspecified parameter until results agree with known standards.</p>
+        <p>The Operational Rendering Engine inspects written methods and resolves what they leave unsaid, through user dialogue where a user is available and through small, AI-designed experiments where one is not. Where a protocol says &ldquo;allow to equilibrate,&rdquo; the agent can systematically vary the underspecified parameter until results agree with known standards.</p>
       </div>
     </div>
     <div class="cell objective">
       <span class="objective__tag">TROVE</span>
       <div>
         <h3>A translator into node languages</h3>
-        <p>TROVE converts laboratory-independent OPAL representations into a PCL node&rsquo;s particular execution language. Our work will begin with the SLL language used at Emerald Cloud Lab, and it will have the potential to extend to any node-dependent language as the NSF PCL Test Bed network grows.</p>
+        <p>TROVE converts laboratory-independent AMBER representations into a PCL node&rsquo;s particular execution language. Our work will begin with the SLL language used at Emerald Cloud Lab, and it will have the potential to extend to any node-dependent language as the NSF PCL Test Bed network grows.</p>
       </div>
     </div>
   </div>
@@ -57,12 +57,12 @@ permalink: /vision/
 
 <div class="stack">
   <h2>A network, not a node</h2>
-  <p>OPAL is designed to be independent of any single facility: TROVE translates OPAL specifications into each node&rsquo;s internal language, beginning with Emerald Cloud Lab&rsquo;s SLL. GEMSTONE hopes to serve as the interoperability hub for the NSF programmable cloud laboratory network. Working with the other PCL nodes on APIs and data standards, our team hopes to spearhead the language-design effort that will allow nodes to share, validate, and execute experiments through common, machine-actionable specifications.</p>
+  <p>AMBER is designed to be independent of any single facility: TROVE translates AMBER specifications into each node&rsquo;s internal language, beginning with Emerald Cloud Lab&rsquo;s SLL. GEMSTONE hopes to serve as the interoperability hub for the NSF programmable cloud laboratory network. Working with the other PCL nodes on APIs and data standards, our team hopes to spearhead the language-design effort that will allow nodes to share, validate, and execute experiments through common, machine-actionable specifications.</p>
   {% include network-viz.html %}
 </div>
 
 <div class="pull">
-  <p>OPAL is meant to do for laboratory automation what the STEP language did for computer-aided design and manufacturing in the last century: by creating a shared interchange layer, OPAL will enable the PCL community to avoid becoming siloed, enabling the widespread sharing of specification languages, of protocol-authoring tools, and of whole laboratory facilities.</p>
+  <p>AMBER is meant to do for laboratory automation what the STEP language did for computer-aided design and manufacturing in the last century: by creating a shared interchange layer, AMBER will enable the PCL community to avoid becoming siloed, enabling the widespread sharing of specification languages, of protocol-authoring tools, and of whole laboratory facilities.</p>
 </div>
 
 <div class="stack">

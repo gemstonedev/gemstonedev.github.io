@@ -9,9 +9,9 @@
   short: Stanford
   map_x: 36.9
   map_y: 270.3
-  role: Data standards and the OPAL representation
+  role: Data standards and the AMBER representation
   contribution: >-
-    Leads the design of OPAL and the tools that edit and maintain it, building on
+    Leads the design of AMBER and the tools that edit and maintain it, building on
     CEDAR, BioPortal, and Protégé.
 - name: Emerald Cloud Lab
   # full wordmark lockup (emerald.svg) is too wide to read at cell size,

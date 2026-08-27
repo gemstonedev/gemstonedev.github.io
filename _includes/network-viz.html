@@ -1,12 +1,12 @@
 <div class="netviz is-hub" data-netviz>
   <div class="netviz__switch" role="group" aria-label="Compare interoperability approaches">
     <button class="netviz__mode" type="button" data-netviz-mode="mesh" aria-pressed="false">Without a shared standard</button>
-    <button class="netviz__mode" type="button" data-netviz-mode="hub" aria-pressed="true">With OPAL</button>
+    <button class="netviz__mode" type="button" data-netviz-mode="hub" aria-pressed="true">With AMBER</button>
   </div>
 
   <div class="netviz__stage">
     <svg class="netviz__svg" viewBox="0 0 720 420" role="img"
-         aria-label="Two views of a growing network of laboratory nodes, each speaking its own execution language. Emerald Cloud Lab is the first node; the others are illustrative, and a dashed node stands for the labs still to join. Without a shared standard, every pair of nodes needs its own translation: fifteen for the six shown, and the count grows with the square of the network. With OPAL as a shared hub, each node translates once, to the standard: one connection per node, however many nodes there are.">
+         aria-label="Two views of a growing network of laboratory nodes, each speaking its own execution language. Emerald Cloud Lab is the first node; the others are illustrative, and a dashed node stands for the labs still to join. Without a shared standard, every pair of nodes needs its own translation: fifteen for the six shown, and the count grows with the square of the network. With AMBER as a shared hub, each node translates once, to the standard: one connection per node, however many nodes there are.">
 
       <!-- every-pair mesh: the world without a shared standard -->
       <g class="netviz__mesh" aria-hidden="true">
@@ -27,7 +27,7 @@
         <line class="netviz__link--ghost" x1="126" y1="285" x2="126" y2="135"/>
       </g>
 
-      <!-- one spoke per node: the world with OPAL -->
+      <!-- one spoke per node: the world with AMBER -->
       <g class="netviz__spokes" aria-hidden="true">
         <line x1="360" y1="210" x2="360" y2="60"/>
         <line x1="360" y1="210" x2="594" y2="135"/>
@@ -37,11 +37,11 @@
         <line class="netviz__link--ghost" x1="360" y1="210" x2="126" y2="135"/>
       </g>
 
-      <!-- the OPAL hub -->
+      <!-- the AMBER hub -->
       <g class="netviz__hub" aria-hidden="true">
         <g transform="translate(360 210)">
           <rect class="netviz__hub-gem" x="-33" y="-33" width="66" height="66"/>
-          <text class="netviz__hub-name" y="5">OPAL</text>
+          <text class="netviz__hub-name" y="5">AMBER</text>
           <text class="netviz__hub-sub" y="64">GEMSTONE &middot; open standard</text>
         </g>
       </g>

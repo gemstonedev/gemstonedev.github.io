@@ -564,7 +564,7 @@ a.news-item:hover { background: var(--tint); color: var(--ink); }
   .pipeviz__stages { display: contents; }
 }
 
-/* ---------- network viz (vision): pairwise tangle vs the OPAL hub ---------- */
+/* ---------- network viz (vision): pairwise tangle vs the AMBER hub ---------- */
 .netviz { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
 
 .netviz__switch { display: flex; flex-wrap: wrap; gap: 8px; }
