@@ -14,15 +14,22 @@ around.
 
 <figure>
   <img src="{{ '/assets/img/kickoff-ecl-austin.jpg' | relative_url }}"
-       alt="The GEMSTONE team, in lab coats and safety glasses, standing together on the automated laboratory floor at Emerald Cloud Lab in Austin, Texas.">
-  <figcaption>The GEMSTONE team on the laboratory floor at Emerald Cloud Lab
-  in Austin, Texas.</figcaption>
+       alt="Part of the GEMSTONE team, in lab coats and safety glasses, standing together on the automated laboratory floor at Emerald Cloud Lab in Austin, Texas.">
+  <figcaption>Part of the GEMSTONE team on the laboratory floor at Emerald
+  Cloud Lab in Austin, Texas.</figcaption>
 </figure>
 
 Researchers from Stanford University, Purdue University, Morehouse College,
 and Emerald Cloud Lab met in person to plan the entire project and
 toured the floor of the
 programmable cloud laboratory where GEMSTONE's protocols will run.
+
+<figure>
+  <img src="{{ '/assets/img/kickoff-lab-tour.jpg' | relative_url }}"
+       alt="An Emerald Cloud Lab scientist demonstrates a station of sensor-capped reagent bottles to GEMSTONE team members wearing lab coats, safety glasses, and tour headsets on the automated laboratory floor.">
+  <figcaption>During the tour, an Emerald Cloud Lab scientist demonstrates how sensor-capped
+  vessels are monitored on the automated laboratory floor.</figcaption>
+</figure>
 
 <figure>
   <img src="{{ '/assets/img/kickoff-planning-session.jpg' | relative_url }}"

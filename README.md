@@ -32,7 +32,7 @@ workflow is needed — every plugin used here is on the Pages allowlist.
 | **Email addresses** | `contact.html`. All four cells currently point at `gemstone@stanford.edu` with subject-line hints — confirm that alias is live and monitored, and split into dedicated `access@`/`outreach@`/`press@` aliases once provisioned. |
 | **Social card** | `assets/img/social-card.png` (1200×630), referenced from `_includes/head.html` for Open Graph / Twitter previews. Regenerate if the tagline or partners change. |
 | **News posts** | `_posts/`. The two entries are drafted from the proposal, not published announcements — confirm dates and wording. |
-| **Newsletter signup** | `news.html` currently links to a `mailto:` subscribe button. Swap it for a real list (Mailchimp, Buttondown, or a Google Form) once one exists. |
+| **Interest list form** | `news.html` and `contact.html` link to the GEMSTONE Interest List Google Form (`https://forms.gle/rp1rkuADghCZ2rta6`); responses live in the linked Sheet. |
 
 ---
 

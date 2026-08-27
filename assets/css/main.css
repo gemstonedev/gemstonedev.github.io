@@ -349,22 +349,21 @@ a.news-item:hover { background: var(--tint); color: var(--ink); }
 .post-body ul { margin: 0; padding-left: 22px; font-size: 18px; line-height: 1.72; color: var(--body); }
 .post-body li { margin-bottom: 8px; }
 .post-body figure { margin: 4px 0; }
-.post-body figure img, .team-photo img { display: block; width: 100%; height: auto; border-radius: 10px; }
-.post-body figcaption, .team-photo figcaption { margin-top: 10px; font-size: 14px; line-height: 1.5; color: var(--muted); }
-.team-photo { margin: 0; }
+.post-body figure img, .team-photo img, .figure img { display: block; width: 100%; height: auto; border-radius: 10px; }
+.post-body figcaption, .team-photo figcaption, .figure figcaption { margin-top: 10px; font-size: 14px; line-height: 1.5; color: var(--muted); }
+.team-photo, .figure { margin: 0; }
+
+/* homepage facility band: photographic proof of the stats above it */
+.facility .wrap { padding-top: 44px; padding-bottom: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 28px; align-items: start; }
+.facility figure { margin: 0; }
+.facility img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 10px; }
+.facility figcaption { margin-top: 10px; font-size: 14px; line-height: 1.5; color: var(--muted); }
 
 /* ---------- signup ---------- */
 .signup { border: 1px solid var(--rule); background: var(--tint); padding: 26px 30px; display: flex; flex-direction: column; gap: 10px; }
 .signup h3 { font-size: 17px; font-weight: 600; }
 .signup p { font-size: 16px; line-height: 1.65; color: var(--muted); }
 .signup__row { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 6px; }
-.signup input[type="email"] {
-  flex: 1 1 260px; max-width: 320px; border: 1px solid #C5CFDA; background: #fff;
-  padding: 12px 14px; font-family: var(--text); font-size: 16px; color: var(--ink);
-}
-.signup input[type="email"]::placeholder { color: var(--quiet); }
-.signup button { font-family: var(--display); font-size: 15px; font-weight: 600; color: #fff; background: var(--navy); border: 0; padding: 13px 24px; cursor: pointer; }
-.signup button:hover { background: var(--accent-ink); }
 
 /* ---------- CTA panel ---------- */
 .cta { background: var(--deep); padding: 34px 38px; display: flex; flex-direction: column; gap: 12px; }
@@ -776,7 +775,7 @@ a.news-item:hover { background: var(--tint); color: var(--ink); }
 }
 
 /* ---------- motion (all guarded by prefers-reduced-motion) ---------- */
-a, .btn, .site-nav a, .signup button { transition: color .15s ease, background-color .15s ease, border-color .15s ease; }
+a, .btn, .site-nav a { transition: color .15s ease, background-color .15s ease, border-color .15s ease; }
 
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
