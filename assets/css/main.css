@@ -348,6 +348,10 @@ a.news-item:hover { background: var(--tint); color: var(--ink); }
 .post-body h2 { font-size: 23px; margin-top: 12px; }
 .post-body ul { margin: 0; padding-left: 22px; font-size: 18px; line-height: 1.72; color: var(--body); }
 .post-body li { margin-bottom: 8px; }
+.post-body figure { margin: 4px 0; }
+.post-body figure img, .team-photo img { display: block; width: 100%; height: auto; border-radius: 10px; }
+.post-body figcaption, .team-photo figcaption { margin-top: 10px; font-size: 14px; line-height: 1.5; color: var(--muted); }
+.team-photo { margin: 0; }
 
 /* ---------- signup ---------- */
 .signup { border: 1px solid var(--rule); background: var(--tint); padding: 26px 30px; display: flex; flex-direction: column; gap: 10px; }
