@@ -1,7 +1,7 @@
 # photo: filename inside assets/img/team/ (square images work best).
 # If the file is missing the site shows an initials placeholder instead.
 # bio is optional — rows without one render as a compact identity row.
-# group: pis | leadership — controls which subsection the person appears in.
+# group: pis | leadership | advisors — controls which subsection the person appears in.
 people:
   - name: Mark A. Musen, MD, PhD
     photo: mark-musen.jpg
@@ -65,3 +65,21 @@ people:
     role: Operations &amp; User Support Lead
     org: Emerald Cloud Lab
     group: leadership
+  - name: Stephen Wolfram, PhD
+    photo: stephen-wolfram.jpg
+    role: Scientific Advisor
+    org: Wolfram Research
+    group: advisors
+    bio: >-
+      Founder and CEO of Wolfram Research and creator of Mathematica,
+      WolframAlpha, and the Wolfram Language, pioneering the computational
+      paradigm across science and technology for four decades.
+  - name: Claudius Mundoma, PhD, MBA
+    photo: claudius-mundoma.jpg
+    role: Scientific Advisor
+    org: Stanford University
+    group: advisors
+    bio: >-
+      Director of Shared Research Platforms at Stanford University, advancing
+      next-generation research infrastructure and pioneering the transition to
+      autonomous laboratories.

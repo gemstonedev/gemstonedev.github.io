@@ -60,3 +60,21 @@ wide: true
   </div>
   <p class="team-note">GEMSTONE's full team extends well beyond this list, spanning the five partner organizations.</p>
 </div>
+
+<div class="stack">
+  <h2>Scientific advisors</h2>
+  <div class="cells cells--1">
+    {% assign advisors = site.data.team.people | where: "group", "advisors" %}
+    {% for m in advisors %}
+    <div class="cell person{% unless m.bio %} person--brief{% endunless %}">
+      {% include person-photo.html member=m %}
+      <div class="person__meta">
+        <span class="label label--accent">{{ m.role }}</span>
+        <h3>{{ m.name }}</h3>
+        <span class="person__org">{{ m.org }}</span>
+      </div>
+      {% if m.bio %}<p class="person__bio">{{ m.bio }}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
