@@ -325,7 +325,7 @@ img, svg { max-width: 100%; }
 }
 /* rows without a bio: identity block centers against the portrait */
 .person--brief .person__meta { grid-row: 1 / 3; align-self: center; }
-.team-note { font-size: 15px; line-height: 1.6; color: var(--quiet); }
+.team-note, .flow .team-note { font-size: 15px; line-height: 1.6; color: var(--quiet); }
 
 /* contact cells */
 .contact-cell a { font-family: var(--display); font-size: 18px; font-weight: 600; overflow-wrap: anywhere; }
@@ -392,6 +392,21 @@ a.news-item:hover { background: var(--tint); color: var(--ink); }
 
 /* citation block */
 .cite { font-family: ui-monospace, Menlo, monospace; font-size: 14px; line-height: 1.7; }
+
+/* Publication list */
+.pub-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 22px; }
+.pub { border-left: 3px solid var(--rule); padding-left: 20px; }
+.pub__cite, .flow .pub__cite { font-size: 16px; line-height: 1.65; color: var(--body); margin: 0; }
+.pub__title { font-style: italic; }
+.pub__links, .flow .pub__links { margin-top: 6px; font-size: 15px; }
+.pub__sep { margin: 0 6px; color: var(--quiet); }
+
+/* Poster modal */
+.poster-modal { border: none; padding: 0; background: transparent; max-width: min(1100px, 92vw); }
+.poster-modal::backdrop { background: rgba(8, 20, 36, 0.78); }
+.poster-modal img { display: block; width: 100%; height: auto; border-radius: 4px; }
+.poster-modal__close { position: absolute; top: 8px; right: 8px; width: 36px; height: 36px; border: none; border-radius: 50%; background: rgba(8, 20, 36, 0.65); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; }
+.poster-modal__close:hover { background: rgba(8, 20, 36, 0.9); }
 
 /* funder block (NSF logo + support statement) */
 .funder { display: flex; align-items: center; gap: 30px; }

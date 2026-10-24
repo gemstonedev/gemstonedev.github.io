@@ -7,6 +7,43 @@ description: >-
   available.
 permalink: /publications/
 ---
-<div class="note">
-  <p>Publications from the project will be listed here as they appear, with preprints and data linked where available.</p>
+<div class="stack">
+  <h2>Posters &amp; presentations</h2>
+  <ol class="pub-list">
+    <li class="pub">
+      <p class="pub__cite">Musen MA, Kleinbaum DJ, Chopra G, Mendenhall J, Larsen K, Mart&iacute;nez-Romero M. <cite class="pub__title">Standards and AI to Connect Programmable Cloud Laboratories at Industrial Scale</cite>. Poster presented at the <a href="https://ebrc.org/national-network-of-ai-programmable-cloud-laboratories-summit-pcl-kickoff/">PCLNet Summit</a>; September 24&ndash;25, 2026; Washington, DC.</p>
+      <p class="pub__links">
+        <a href="#" data-poster-open>View poster</a>
+        <span class="pub__sep" aria-hidden="true">&middot;</span>
+        <a href="{{ '/assets/pubs/gemstone-poster-pclnet-summit-2026.pdf' | relative_url }}">Download PDF (1.5&nbsp;MB)</a>
+      </p>
+    </li>
+  </ol>
+  <p class="team-note">Peer-reviewed publications from the project will be listed here as they appear, with preprints and data linked where available.</p>
 </div>
+
+<dialog class="poster-modal" id="poster-dialog" aria-label="GEMSTONE poster presented at the PCLNet Summit">
+  <button class="poster-modal__close" type="button" aria-label="Close">&times;</button>
+  <a href="{{ '/assets/pubs/gemstone-poster-pclnet-summit-2026.pdf' | relative_url }}" title="Open the full-resolution PDF">
+    <img src="{{ '/assets/img/pubs/pclnet-summit-poster.jpg' | relative_url }}"
+         alt="The GEMSTONE poster presented at the PCLNet Summit: Standards and AI to Connect Programmable Cloud Laboratories at Industrial Scale."
+         loading="lazy" decoding="async">
+  </a>
+</dialog>
+<script>
+  (function () {
+    var dialog = document.getElementById('poster-dialog');
+    document.querySelectorAll('[data-poster-open]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        dialog.showModal();
+      });
+    });
+    dialog.querySelector('.poster-modal__close').addEventListener('click', function () {
+      dialog.close();
+    });
+    dialog.addEventListener('click', function (event) {
+      if (event.target === dialog) dialog.close();
+    });
+  })();
+</script>
